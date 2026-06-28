@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>API Management Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#200df2",
+                        "background-light": "#f6f5f8",
+                        "background-dark": "#111022",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Top Navigation Bar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-800 px-6 py-3 bg-white dark:bg-background-dark sticky top-0 z-50">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-primary">
+<div class="size-8 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined">api</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-tight">NexusAPI</h2>
+</div>
+<label class="flex flex-col min-w-40 !h-10 max-w-64 hidden md:flex">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full overflow-hidden border border-slate-200 dark:border-slate-700">
+<div class="text-slate-400 dark:text-slate-500 flex bg-slate-50 dark:bg-slate-800 items-center justify-center pl-4">
+<span class="material-symbols-outlined text-xl">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 border-none bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-0 h-full placeholder:text-slate-400 dark:placeholder:text-slate-500 px-4 text-sm font-normal" placeholder="Search keys, endpoints..." value=""/>
+</div>
+</label>
+</div>
+<div class="flex flex-1 justify-end gap-4 items-center">
+<div class="flex gap-2">
+<button class="flex size-10 cursor-pointer items-center justify-center rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="flex size-10 cursor-pointer items-center justify-center rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+<div class="h-8 w-px bg-slate-200 dark:bg-slate-800 mx-2"></div>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border border-slate-200 dark:border-slate-700" data-alt="User avatar for the API administrator profile" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDEuz_BAmauOBbWFPIvzDuXYYxxdkzecE4WsU80odMHXKoYJwN5M4X5AJmWwXEdxbqe74P2aLgVtoibzY8nV9eaN83SpnabyBfoI1podtiRw_SJAha3HG7Ib1uczWSSmJsv6KTaAHskrBaYY7XmkqssO33fKIi4V2xBfU14n3jRxhaXsqxfWziRA5cBcnXYm4cHuouJzlVoJ4R0OQUCLf8FijEcjGQcWWF7YF-BkNn_5wosM8-7JaSboE3B7LV7AzstkL9l_jugoFo");'></div>
+</div>
+</header>
+<div class="flex flex-1">
+<!-- Sidebar -->
+<aside class="w-64 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark p-4 hidden lg:flex flex-col justify-between">
+<div class="flex flex-col gap-6">
+<div class="flex flex-col">
+<h3 class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider px-3 mb-2">Main Menu</h3>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 text-primary font-medium" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">key</span>
+<span class="text-sm">API Keys</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-sm">Usage Logs</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">security</span>
+<span class="text-sm">Security</span>
+</a>
+</nav>
+</div>
+<div class="flex flex-col">
+<h3 class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider px-3 mb-2">Support</h3>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="text-sm">Documentation</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="text-sm">Help Center</span>
+</a>
+</nav>
+</div>
+</div>
+<div class="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-xl border border-slate-100 dark:border-slate-800">
+<p class="text-xs font-medium text-slate-500 dark:text-slate-400 mb-1">Current Plan</p>
+<p class="text-sm font-bold text-slate-900 dark:text-white mb-3">Enterprise Pro</p>
+<div class="w-full bg-slate-200 dark:bg-slate-700 h-1.5 rounded-full mb-2">
+<div class="bg-primary h-1.5 rounded-full w-3/4"></div>
+</div>
+<p class="text-[10px] text-slate-400 dark:text-slate-500">7.5M / 10M requests</p>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 overflow-y-auto p-6 md:p-10 space-y-8">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div class="space-y-1">
+<h1 class="text-slate-900 dark:text-white text-3xl font-extrabold tracking-tight">API Overview</h1>
+<p class="text-slate-500 dark:text-slate-400">Monitor your infrastructure and manage authentication credentials.</p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 font-semibold text-sm hover:bg-slate-50 dark:hover:bg-slate-700 transition-all">
+<span class="material-symbols-outlined text-lg">download</span>
+                        Export Data
+                    </button>
+<button class="flex items-center gap-2 px-6 py-2.5 rounded-lg bg-primary text-white font-semibold text-sm hover:opacity-90 transition-all shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-lg">add</span>
+                        Generate New Key
+                    </button>
+</div>
+</div>
+<!-- Stats Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+<div class="bg-white dark:bg-slate-800 p-5 rounded-xl border border-slate-200 dark:border-slate-700">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined p-2 bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 rounded-lg">speed</span>
+<span class="text-xs font-bold text-emerald-500 bg-emerald-50 dark:bg-emerald-500/10 px-2 py-0.5 rounded-full">+12.5%</span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Req / Minute</p>
+<h4 class="text-2xl font-bold text-slate-900 dark:text-white">12,482</h4>
+</div>
+<div class="bg-white dark:bg-slate-800 p-5 rounded-xl border border-slate-200 dark:border-slate-700">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined p-2 bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400 rounded-lg">timer</span>
+<span class="text-xs font-bold text-emerald-500 bg-emerald-50 dark:bg-emerald-500/10 px-2 py-0.5 rounded-full">-4ms</span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Avg. Latency</p>
+<h4 class="text-2xl font-bold text-slate-900 dark:text-white">42ms</h4>
+</div>
+<div class="bg-white dark:bg-slate-800 p-5 rounded-xl border border-slate-200 dark:border-slate-700">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined p-2 bg-amber-50 dark:bg-amber-900/20 text-amber-600 dark:text-amber-400 rounded-lg">error</span>
+<span class="text-xs font-bold text-rose-500 bg-rose-50 dark:bg-rose-500/10 px-2 py-0.5 rounded-full">+0.01%</span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Error Rate</p>
+<h4 class="text-2xl font-bold text-slate-900 dark:text-white">0.04%</h4>
+</div>
+<div class="bg-white dark:bg-slate-800 p-5 rounded-xl border border-slate-200 dark:border-slate-700">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined p-2 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400 rounded-lg">check_circle</span>
+<span class="text-xs font-bold text-emerald-500 bg-emerald-50 dark:bg-emerald-500/10 px-2 py-0.5 rounded-full">Optimal</span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Active Nodes</p>
+<h4 class="text-2xl font-bold text-slate-900 dark:text-white">24 / 24</h4>
+</div>
+</div>
+<!-- Visualizations -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+<!-- Traffic Chart -->
+<div class="bg-white dark:bg-slate-800 p-6 rounded-xl border border-slate-200 dark:border-slate-700">
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white">Request Traffic (24h)</h3>
+<select class="bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-700 rounded-lg text-xs font-semibold py-1">
+<option>Last 24 Hours</option>
+<option>Last 7 Days</option>
+</select>
+</div>
+<div class="h-64 flex items-end gap-2 px-2">
+<!-- Simplified bar chart representation -->
+<div class="flex-1 bg-primary/20 rounded-t h-[40%] hover:bg-primary transition-all"></div>
+<div class="flex-1 bg-primary/20 rounded-t h-[60%] hover:bg-primary transition-all"></div>
+<div class="flex-1 bg-primary/20 rounded-t h-[30%] hover:bg-primary transition-all"></div>
+<div class="flex-1 bg-primary/20 rounded-t h-[80%] hover:bg-primary transition-all"></div>
+<div class="flex-1 bg-primary/20 rounded-t h-[55%] hover:bg-primary transition-all"></div>
+<div class="flex-1 bg-primary/20 rounded-t h-[90%] hover:bg-primary transition-all"></div>
+<div class="flex-1 bg-primary/20 rounded-t h-[45%] hover:bg-primary transition-all"></div>
+<div class="flex-1 bg-primary/20 rounded-t h-[70%] hover:bg-primary transition-all"></div>
+<div class="flex-1 bg-primary/20 rounded-t h-[35%] hover:bg-primary transition-all"></div>
+<div class="flex-1 bg-primary/20 rounded-t h-[100%] hover:bg-primary transition-all"></div>
+<div class="flex-1 bg-primary/20 rounded-t h-[75%] hover:bg-primary transition-all"></div>
+<div class="flex-1 bg-primary/20 rounded-t h-[50%] hover:bg-primary transition-all"></div>
+</div>
+<div class="flex justify-between mt-4 text-[10px] text-slate-400 font-bold uppercase tracking-widest">
+<span>00:00</span>
+<span>06:00</span>
+<span>12:00</span>
+<span>18:00</span>
+<span>23:59</span>
+</div>
+</div>
+<!-- Errors by Endpoint -->
+<div class="bg-white dark:bg-slate-800 p-6 rounded-xl border border-slate-200 dark:border-slate-700">
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white">Error Distrubution</h3>
+<button class="text-primary text-xs font-bold hover:underline">View Logs</button>
+</div>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between text-sm mb-1.5">
+<span class="font-medium text-slate-700 dark:text-slate-300">/auth/login</span>
+<span class="text-rose-500 font-bold">42 errors</span>
+</div>
+<div class="w-full bg-slate-100 dark:bg-slate-900 h-2 rounded-full overflow-hidden">
+<div class="bg-rose-500 h-full w-[85%]"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-sm mb-1.5">
+<span class="font-medium text-slate-700 dark:text-slate-300">/users/profile</span>
+<span class="text-rose-500 font-bold">18 errors</span>
+</div>
+<div class="w-full bg-slate-100 dark:bg-slate-900 h-2 rounded-full overflow-hidden">
+<div class="bg-rose-500 h-full w-[40%]"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-sm mb-1.5">
+<span class="font-medium text-slate-700 dark:text-slate-300">/orders/checkout</span>
+<span class="text-rose-500 font-bold">12 errors</span>
+</div>
+<div class="w-full bg-slate-100 dark:bg-slate-900 h-2 rounded-full overflow-hidden">
+<div class="bg-rose-500 h-full w-[25%]"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-sm mb-1.5">
+<span class="font-medium text-slate-700 dark:text-slate-300">/products/search</span>
+<span class="text-rose-500 font-bold">5 errors</span>
+</div>
+<div class="w-full bg-slate-100 dark:bg-slate-900 h-2 rounded-full overflow-hidden">
+<div class="bg-rose-500 h-full w-[10%]"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- API Keys Table -->
+<div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+<div class="p-6 border-b border-slate-200 dark:border-slate-700 flex flex-col md:flex-row md:items-center justify-between gap-4">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white">Active API Keys</h3>
+<div class="flex gap-2">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">filter_list</span>
+<select class="pl-9 pr-4 py-1.5 text-xs bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-700 rounded-lg font-semibold text-slate-700 dark:text-slate-300">
+<option>Status: All</option>
+<option>Status: Active</option>
+<option>Status: Revoked</option>
+</select>
+</div>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-50 dark:bg-slate-900/50">
+<th class="px-6 py-3 text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest">Label</th>
+<th class="px-6 py-3 text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest">Key Prefix</th>
+<th class="px-6 py-3 text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest">Status</th>
+<th class="px-6 py-3 text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest text-center">Requests (24h)</th>
+<th class="px-6 py-3 text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest">Last Used</th>
+<th class="px-6 py-3 text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-slate-700">
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<td class="px-6 py-4">
+<span class="font-semibold text-slate-900 dark:text-white">Production - Main App</span>
+</td>
+<td class="px-6 py-4 font-mono text-xs text-slate-500">pk_live_48f2...</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
+<span class="size-1.5 rounded-full bg-emerald-500"></span>
+                                        Active
+                                    </span>
+</td>
+<td class="px-6 py-4 text-center">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">2,482,102</span>
+</td>
+<td class="px-6 py-4">
+<span class="text-xs text-slate-500 dark:text-slate-400">2 mins ago</span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-1 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-xl">edit</span>
+</button>
+<button class="p-1 text-slate-400 hover:text-rose-500 transition-colors">
+<span class="material-symbols-outlined text-xl">block</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<td class="px-6 py-4">
+<span class="font-semibold text-slate-900 dark:text-white">Staging - Internal Tool</span>
+</td>
+<td class="px-6 py-4 font-mono text-xs text-slate-500">pk_test_a9c1...</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
+<span class="size-1.5 rounded-full bg-emerald-500"></span>
+                                        Active
+                                    </span>
+</td>
+<td class="px-6 py-4 text-center">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">142,551</span>
+</td>
+<td class="px-6 py-4">
+<span class="text-xs text-slate-500 dark:text-slate-400">1 hour ago</span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-1 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-xl">edit</span>
+</button>
+<button class="p-1 text-slate-400 hover:text-rose-500 transition-colors">
+<span class="material-symbols-outlined text-xl">block</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<td class="px-6 py-4">
+<span class="font-semibold text-slate-900 dark:text-white">Mobile SDK - Legacy</span>
+</td>
+<td class="px-6 py-4 font-mono text-xs text-slate-500">pk_live_f0e4...</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400">
+<span class="size-1.5 rounded-full bg-slate-400"></span>
+                                        Inactive
+                                    </span>
+</td>
+<td class="px-6 py-4 text-center">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">0</span>
+</td>
+<td class="px-6 py-4">
+<span class="text-xs text-slate-500 dark:text-slate-400">14 days ago</span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-1 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-xl">edit</span>
+</button>
+<button class="p-1 text-slate-400 hover:text-rose-500 transition-colors">
+<span class="material-symbols-outlined text-xl">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<td class="px-6 py-4">
+<span class="font-semibold text-slate-900 dark:text-white">Integrations - Zapier</span>
+</td>
+<td class="px-6 py-4 font-mono text-xs text-slate-500">pk_live_d21b...</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
+<span class="size-1.5 rounded-full bg-emerald-500"></span>
+                                        Active
+                                    </span>
+</td>
+<td class="px-6 py-4 text-center">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">852</span>
+</td>
+<td class="px-6 py-4">
+<span class="text-xs text-slate-500 dark:text-slate-400">15 mins ago</span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-1 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-xl">edit</span>
+</button>
+<button class="p-1 text-slate-400 hover:text-rose-500 transition-colors">
+<span class="material-symbols-outlined text-xl">block</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-4 bg-slate-50 dark:bg-slate-900/50 flex items-center justify-between">
+<p class="text-xs text-slate-500 font-medium">Showing 1-4 of 12 active keys</p>
+<div class="flex gap-1">
+<button class="size-8 rounded border border-slate-200 dark:border-slate-700 flex items-center justify-center bg-white dark:bg-slate-800 text-slate-400 cursor-not-allowed">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button class="size-8 rounded border border-slate-200 dark:border-slate-700 flex items-center justify-center bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-50">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>

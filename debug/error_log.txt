@@ -1,0 +1,28 @@
+[32mINFO[0m:     Will watch for changes in these directories: ['E:\\NimaTechVibeCoding\\NimaPosApiGravity']
+[32mINFO[0m:     Uvicorn running on [1mhttp://0.0.0.0:8000[0m (Press CTRL+C to quit)
+[32mINFO[0m:     Started reloader process [[36m[1m67948[0m] using [36m[1mWatchFiles[0m
+E:\NimaTechVibeCoding\NimaPosApiGravity\.venv\Lib\site-packages\pydantic\_internal\_fields.py:132: UserWarning: Field "model_number" in ProductCreate has conflict with protected namespace "model_".
+
+You may be able to resolve this warning by setting `model_config['protected_namespaces'] = ()`.
+  warnings.warn(
+E:\NimaTechVibeCoding\NimaPosApiGravity\.venv\Lib\site-packages\pydantic\_internal\_fields.py:132: UserWarning: Field "model_number" in ProductUpdate has conflict with protected namespace "model_".
+
+You may be able to resolve this warning by setting `model_config['protected_namespaces'] = ()`.
+  warnings.warn(
+E:\NimaTechVibeCoding\NimaPosApiGravity\.venv\Lib\site-packages\pydantic\_internal\_fields.py:132: UserWarning: Field "model_number" in ProductOut has conflict with protected namespace "model_".
+
+You may be able to resolve this warning by setting `model_config['protected_namespaces'] = ()`.
+  warnings.warn(
+2026-03-01 19:50:46,742 [INFO] app.main: \u2705 All routers mounted under /api/v1
+[32mINFO[0m:     Started server process [[36m57572[0m]
+[32mINFO[0m:     Waiting for application startup.
+2026-03-01 19:50:46,744 [INFO] app.main: \U0001f680 NimaPOS API v2.29.0 starting...
+2026-03-01 19:50:46,747 [INFO] app.database.connection: SQLite connection opened: E:\NimaTechVibeCoding\NimaPosApiGravity\data\pos_api.db
+2026-03-01 19:50:46,749 [INFO] app.database.schema.tables: All tables created.
+2026-03-01 19:50:46,786 [INFO] app.database.schema.seeds: Seed data applied.
+2026-03-01 19:50:46,787 [INFO] app.database.schema.seeds: Egyptian Geography seed data applied.
+2026-03-01 19:50:46,787 [INFO] app.database.manager: Database initialized successfully (Modularized).
+2026-03-01 19:50:46,788 [INFO] app.utils.time_keeper: TimeKeeper initialized. Last known DB time: 2026-03-01T02:40:20
+2026-03-01 19:50:46,789 [INFO] app.database.backup_service: AutoBackupService started in background.
+2026-03-01 19:50:46,790 [INFO] app.main: \u2705 Database & Background Services initialized.
+[32mINFO[0m:     Application startup complete.

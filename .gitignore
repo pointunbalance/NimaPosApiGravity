@@ -1,0 +1,123 @@
+# ============================================
+# NimaPOS API - Comprehensive .gitignore
+# ============================================
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+*.egg
+dist/
+build/
+eggs/
+*.whl
+pip-log.txt
+pip-delete-this-directory.txt
+
+# --- Virtual Environment ---
+.venv/
+venv/
+ENV/
+env/
+
+# --- Environment & Secrets ---
+.env
+.env.*
+jwt_secret.key
+*.key
+*.pem
+*.p12
+*.pfx
+
+# --- Database ---
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+data/pos_api.db*
+
+# --- IDE ---
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+
+# --- OS ---
+.DS_Store
+Thumbs.db
+desktop.ini
+*.lnk
+
+# --- Logs ---
+*.log
+logs/
+api_startup.log
+api_error.log
+server_debug_log.txt
+server_stdout.log
+server_stdout2.log
+debug_trace.txt
+debug_trace2.txt
+api-dev.err.log
+api-dev.out.log
+frontend-dev.err.log
+frontend-dev.out.log
+frontend-5173.err.log
+frontend-5173.out.log
+
+# --- Test & Coverage ---
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+*.cover
+
+# --- Build Artifacts ---
+*.tar.gz
+*.zip
+!backups/
+!Source_Hub/
+
+# --- Node.js (frontend) ---
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+*.tsbuildinfo
+
+# --- Debug & Scratch Files ---
+debug_*.py
+debug_*.log
+test_*.py
+!tests/test_*.py
+run_auth_test.py
+pytest*.log
+pytest*.txt
+verify_*.py
+!scripts/verify_*.py
+check_*.py
+!scripts/check_*.py
+dump_schema.py
+schema_dump.txt
+SourceHubList.txt
+
+# --- Playwright ---
+.playwright-cli/
+
+# --- Temporary ---
+tmp/
+temp/
+*.tmp
+*.bak
+*.backup
+
+# --- Nima UI Kit Cache ---
+nima_ui_kit/__pycache__/
+nima_ui_kit/**/__pycache__/
+
+# --- Backups (keep in Source_Hub only) ---
+backsup/

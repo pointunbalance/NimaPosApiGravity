@@ -1,0 +1,44 @@
+# NimaPOS API - Ruff Linter Configuration
+# Run: ruff check . && ruff format --check .
+
+target-version = "py312"
+line-length = 120
+
+[lint]
+select = [
+    "E",    # pycodestyle errors
+    "W",    # pycodestyle warnings
+    "F",    # pyflakes
+    "I",    # isort
+    "N",    # pep8-naming
+    "UP",   # pyupgrade
+    "B",    # flake8-bugbear
+    "SIM",  # flake8-simplify
+    "RUF",  # ruff-specific
+]
+
+ignore = [
+    "E501",   # line too long (handled by formatter)
+    "B008",   # do not perform function calls in argument defaults
+    "N802",   # function name should be lowercase (some legacy names)
+    "N803",   # argument name should be lowercase
+    "N806",   # variable in function should be lowercase
+    "UP007",  # use X | Y for union types (keep Optional for compatibility)
+]
+
+[lint.per-file-ignores]
+"tests/**" = ["S101"]  # allow assert in tests
+"scripts/**" = ["S101", "T20"]  # allow assert and print in scripts
+"app/models/**" = ["N"]  # Pydantic models use different naming conventions
+
+[lint.isort]
+known-first-party = ["app"]
+
+[lint.pyupgrade]
+keep-runtime-typing = true
+
+[format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
