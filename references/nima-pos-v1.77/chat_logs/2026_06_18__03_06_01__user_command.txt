@@ -1,0 +1,8 @@
+Fix the errors in the app
+[AIS_METADATA_SECTION_START]
+error 0: Uncaught SyntaxError: Failed to execute 'closest' on 'Element': '.grid-cols-3, .flex-1, .gap-1, .gap-0.5' is not a valid selector.
+error 1: System Error Tracked:
+Failed to execute 'closest' on 'Element': '.grid-cols-3, .flex-1, .gap-1, .gap-0.5' is not a valid selector.
+Stack: SyntaxError: Failed to execute 'closest' on 'Element': '.grid-cols-3, .flex-1, .gap-1, .gap-0.5' is not a valid selector.
+    at handleGlobalClick (https://ais-dev-ka5xxm3wrplhcztqkwcgds-19328604501.europe-west1.run.app/App.tsx:851:38)
+[AIS_METADATA_SECTION_END]

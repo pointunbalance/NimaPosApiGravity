@@ -1,0 +1,18 @@
+I have refactored and split four large files that were over the 300-line limit:
+1. SchoolAdmissions.tsx:
+   - Extracted `AdmissionRequestCard` to `/components/school/admissions/AdmissionRequestCard.tsx`
+   - Reduced `SchoolAdmissions.tsx` from over 400 lines to 183 lines.
+2. SchoolBehavior.tsx:
+   - Extracted `BehaviorCreateModal` to `/components/school/behavior/BehaviorCreateModal.tsx`
+   - Added full functional behavior creation form.
+   - Reduced `SchoolBehavior.tsx` from 406 lines to 248 lines.
+3. SchoolDiscounts.tsx:
+   - Extracted `DiscountCreateModal` and `DiscountCard` to `/components/school/discounts/DiscountCreateModal.tsx` and `/components/school/discounts/DiscountCard.tsx`.
+   - Replaced native `window.confirm` with `ConfirmModal` and `useToast` notifications.
+   - Reduced `SchoolDiscounts.tsx` from 486 lines to 185 lines.
+4. SchoolExams.tsx:
+   - Extracted `ExamCreateModal` and `ExamResultsModal` to `/components/school/exams/ExamCreateModal.tsx` and `/components/school/exams/ExamResultsModal.tsx`.
+   - Replaced native `window.confirm` with custom `ConfirmModal` and `useToast` feedback.
+   - Reduced `SchoolExams.tsx` from 416 lines to 185 lines.
+
+Verified everything compiles and builds perfectly.

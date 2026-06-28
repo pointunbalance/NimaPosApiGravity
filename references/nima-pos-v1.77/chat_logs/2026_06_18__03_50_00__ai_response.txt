@@ -1,0 +1,10 @@
+I have successfully built and expanded 'شاشة إدارة الروشتات والتعاقدات (Insurance & Prescriptions Copy)' under the 'الروشتات والتعاقدات' tab of the Pharmacy Dashboard. 
+
+Summary of Enhancements Made:
+1. **Diverse Sub-Tabs Added**:
+   - 📋 **روشتات إلكترونية محولة (Electronic Prescriptions)**: Connected with the real-time doctor's prescriptions loop from local clinics.
+   - 📁 **أرشيف الروشتات الورقية والمراقبة (Manual Paper Archiving)**: A dedicated manual prescription entry form that can capture Ukrainian Christian patient & doctor names, catalog prescribed medicines, and upload offline-safe Base64 images for forensic and pharmacy inspector auditing.
+   - 💼 **عروض وجهات التعاقد التأميني (Insurance Contracts & Copayments)**: Lists and configures active healthcare insurance entities, default co-payment ratios (e.g., 20% patient / 80% insurance), contact representatives, and local phone indexes.
+   - 🛡️ **سجل مطالبات مبيعات التأمين (Claims Audit Trail & Ledgers)**: Automatically extracts POS transactions where 'isInsuranceSale' is enabled, rendering metrics for outstanding insurance claims, cash collected from co-payments, and matching digital prescription attachments for review.
+
+All changes are fully persistent on IndexedDB (Dexie.sh) and compile cleanly. No external APIs were introduced, maintaining a strict desktop-ready offline-first experience.

@@ -1,0 +1,20 @@
+A highly strict, pixel-perfect Enterprise UI spacing and layout correction based on image_62e226.jpg. Follow the layout rules below using absolute DO and DO NOT constraints to fix the current spatial chaos.
+
+1. GLOBAL ALIGNMENT (DO & DO NOT):
+- DO: Vertically center the left white login card in relation to the taller right features card. They must share a perfect horizontal midline.
+- DO NOT: Leave the massive empty gap in the center unbalanced. Ensure equal margins on the far left and far right edges of the screen.
+
+2. LEFT LOGIN CARD & PIN-PAD (DO & DO NOT):
+- DO: Perfectly center the 8 PIN indicator dots horizontally directly above the numeric keypad.
+- DO NOT: Cramp the elements together. Add strictly equal vertical padding (e.g., 24px) between the user dropdown, the language toggle pill, the PIN dots, and the keypad.
+- DO: Fix the user profile avatar in the dropdown. It must be perfectly circular, fully contained inside the input field, with a balanced margin.
+- DO NOT: Leave random empty space above the bottom security text ("جميع العمليات مسجلة..."). Anchor it cleanly at the bottom with a precise 16px bottom margin.
+
+3. RIGHT FEATURES PANEL (DO & DO NOT):
+- DO: Apply mathematical, equal vertical spacing (gap) between each of the four feature item cards. 
+- DO NOT: Cramp the text inside the feature cards. Ensure the text has comfortable inner padding away from the card borders.
+- DO: Separate the bottom developer credentials and contact badges with a distinct top margin to breathe, keeping them aligned perfectly with the panel's width.
+
+4. AESTHETICS (DO & DO NOT):
+- DO: Maintain the crisp light-mode gradients, the corporate blue active states, and the subtle pastel red tint on the 'C' button.
+- DO NOT: Add any new decorative elements, heavy shadows, or blurry glows. Keep it strictly flat, sharp, and enterprise-grade.

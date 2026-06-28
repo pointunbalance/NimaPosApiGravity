@@ -1,0 +1,8 @@
+The user requested:
+- Completing the implementation of the Inventory Module and Purchases screen in the POS & Sales system.
+- Specifically focusing on:
+  - Product Profiles: Name, Automatic/International Barcode, Brand, Category, Smart Pricing, Serial Number Tracking, and Reorder Points.
+  - Purchases Screen: Recording incoming supplier invoices, updating stock quantities, buying prices, moving average cost calculations, and supplier accounts.
+  - Stocktake / Inventory Count Screen: Reconciling physical inventory with book inventory, recording wastage and damages.
+- UI Guidelines: Maintain Day Theme Priority.
+- Restrictions: Ensure strict adherence to "No Native Dialogs" across all modified screens (Returns, Purchases, InventoryCount), replacing window.alert/window.confirm with state-driven custom overlays (ConfirmModal) or react-hot-toast notify toasts.

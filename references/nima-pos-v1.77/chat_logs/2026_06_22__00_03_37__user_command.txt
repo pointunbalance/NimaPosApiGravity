@@ -1,0 +1,22 @@
+A highly strict, premium Enterprise UI layout reconstruction and branding update based on image_62f502.jpg. Follow the structural DO and DO NOT constraints layout rules below to swap panels and refine content.
+
+1. LAYOUT SWAP & ALIGNMENT (DO & DO NOT):
+- DO: Completely swap the positions of the two main panels. Move the white floating PIN-pad login card to the LEFT side of the screen, and move the onboarding/features panel to the RIGHT side.
+- DO: Ensure both panels share a perfect horizontal midline with balanced spacing from the screen edges.
+
+2. CONDENSE FEATURES INTO 3 POWERFUL CARDS (DO & DO NOT):
+- DO NOT: Render 4 features. Reduce them strictly into 3 elegant, powerful, and clean corporate feature cards.
+- DO: Write the following 3 Arabic headers and concise subtexts inside the 3 right-side feature cards:
+  1. "إدارة ذكية ونقاط بيع متكاملة" (معالجة فورية للمبيعات، الفروع، والمخازن بمرونة فائقة).
+  2. "أتمتة محاسبية متكاملة" (تسجيل تلقائي للقيود وتحديث فوري للمركز المالي والتقارير بدقة متناهية).
+  3. "تشغيل أوفلاين بالكامل 100%" (تخزين محلي فائق السرعة والأمان عبر قاعدة بيانات محصنة تضمن عدم الضياع).
+
+3. DEVELOPER BRANDING UPDATE (DO & DO NOT):
+- DO NOT: Leave the placeholder name "Yaroslav Bohdan". 
+- DO: Replace it entirely with the official developer credentials: "م/ مينا ميخائيل - المطور المعتمد" along with the official company subtitle "NimaTech Enterprise Server".
+- DO: Increase the font size and visibility of the three bottom action badges (Facebook, Phone, Email), ensuring clear text padding next to their respective vector icons.
+
+4. MICRO-INTERACTION & ACCENTS (DO & DO NOT):
+- DO: Keep the Left-to-Right dynamic typing animation simulation for the 8 PIN dots (first 3 dots solid corporate blue, with the 3rd dot slightly scaled up and radiating a sharp micro-glow).
+- DO: Maintain the soft pastel coral/red warning tint on the 'C' (Clear) button and the clean glassmorphic top Navbar.
+- DO NOT: Clutter the interface. Keep all typography razor-sharp using the premium 'Cairo' or 'Tajawal' Arabic font family.

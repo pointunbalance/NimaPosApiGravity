@@ -1,0 +1,19 @@
+/* Ocean Theme - Blue tint */
+html.ocean body, html.ocean {
+  background-color: #e0f2fe !important; /* sky-100 */
+  color: #0c4a6e !important; /* sky-900 */
+}
+
+html.ocean .bg-white { background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%) !important; }
+html.ocean .bg-slate-50, html.ocean .bg-gray-50 { background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%) !important; }
+html.ocean .bg-slate-100, html.ocean .bg-gray-100 { background-color: #bae6fd !important; }
+html.ocean .border-slate-100, html.ocean .border-gray-100, html.ocean .border-slate-200, html.ocean .border-gray-200 { border-color: #bae6fd !important; }
+html.ocean .border-slate-300, html.ocean .border-gray-300 { border-color: #7dd3fc !important; }
+
+html.ocean .text-slate-500, html.ocean .text-gray-500 { color: #0284c7 !important; }
+html.ocean .text-slate-600, html.ocean .text-gray-600, html.ocean .text-slate-700, html.ocean .text-gray-700 { color: #0369a1 !important; }
+html.ocean .text-slate-800, html.ocean .text-gray-800, html.ocean .text-slate-900, html.ocean .text-gray-900, html.ocean .text-black, html.ocean .text-indigo-900 { color: #0c4a6e !important; }
+
+/* Dashboard Active Tabs Override */
+html.ocean .bg-indigo-50 { background-color: #bae6fd !important; }
+html.ocean .text-indigo-700, html.ocean .text-indigo-600, html.ocean .text-indigo-500 { color: #0369a1 !important; }

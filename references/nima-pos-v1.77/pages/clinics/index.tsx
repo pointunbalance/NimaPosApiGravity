@@ -1,0 +1,10 @@
+export { default as ClinicDashboard } from './ClinicDashboard';
+export { default as ClinicDoctors } from './ClinicDoctors';
+export { default as ClinicPatients } from './ClinicPatients';
+export { default as ClinicReception } from './ClinicReception';
+export * from './ClinicStaff';
+export * from './ClinicBilling';
+export * from './ClinicInventory';
+export * from './ClinicServices';
+export * from './ClinicInsurance';
+export * from './ClinicReports';

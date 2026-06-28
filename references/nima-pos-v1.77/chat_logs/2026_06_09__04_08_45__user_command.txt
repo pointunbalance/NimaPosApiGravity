@@ -1,0 +1,9 @@
+TASK: Optimize the spatial distribution and visual padding for the bottom action section of a Right-to-Left (RTL) POS Sidebar.
+
+Current Issue: The checkout button is clipped to the absolute bottom edge of the screen, creating a heavy, uneven text-to-space ratio, while an excessive gap exists directly above the optional input fields.
+
+Design Rules & Structural Adjustments:
+1. Bottom Margin & Breathing Room: Detach the primary action button (الانتقال للدفع والسداد) from the absolute bottom of the viewport. Introduce a standardized bottom padding/margin so the button floats cleanly within the sidebar container. Apply soft, consistent rounded corners.
+2. Sticky Section Layout & Scrolling Behavior: Define the entire summary block—starting from المجموع الفرعي down to the primary checkout button—as a Fixed/Sticky Bottom Container.
+3. Vertical Gap Rebalancing (Distribute Space Evenly): Reduce the massive empty gap located below the "Optional Promocode/Notes" text fields. Distribute space evenly across pricing fields.
+4. Micro-Hierarchy for Inputs & Quick Actions: Keep optional text fields neat and low-profile. Optimize utility icon buttons (Hold, Edit, Kitchen, Delete) to be vertically centered.

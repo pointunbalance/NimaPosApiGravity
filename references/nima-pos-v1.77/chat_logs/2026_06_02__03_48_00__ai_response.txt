@@ -1,0 +1,24 @@
+I have successfully completed the tasks regarding the Human Resources, Permissions, and Commissions modules:
+
+1. Refactored Employees Management Tool (/pages/Employees.tsx):
+- Replaced standard window.confirm and alert functions with the custom ConfirmModal and showToast utilities.
+- Cleaned up deactivation warnings to safely verify whether active assets custody restricts the employee status toggle from being completed.
+- Added smooth deletion state handlers.
+
+2. Refactored Users Management Screen (/pages/Users.tsx):
+- Replaced native confirm and alert dialogs with the custom ConfirmModal and react-hot-toast warnings.
+- Polished permissions actions and status feedback without blocking native windows.
+
+3. Refactored Role Management Tool (/pages/admin/RoleManagement.tsx):
+- Added validation check to avoid tampering or editing default base roles.
+- Switched standard popups for Role updates, additions, and deletions with standard toast notifications and interactive ConfirmModal.
+
+4. Implemented Technician Commissions Calculator inside Commissions Module (/pages/hr/Commissions.tsx):
+- Created an interactive, modular builder widget built inside the add/edit Commission form.
+- Allows user to choose calculation types:
+  * "نسبة مئوية (%)" containing values for repair service/device cost value and defined commission percentage rate.
+  * "مبلغ مقطوع للجهاز" containing dynamic inputs for number of repaired devices and flat cash reward/fee per item.
+  * "إدخال مباشر" for customized manual override inputs.
+- Automatically computes and updates the commission amount based on input factors.
+
+All pages build perfectly with no syntax error or missing imports!

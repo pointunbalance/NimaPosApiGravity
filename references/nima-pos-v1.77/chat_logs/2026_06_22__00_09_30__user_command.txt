@@ -1,0 +1,12 @@
+A highly strict UI/UX bug-fix and macro-refinement for the password entry animation based on image_63529f.png. Eliminate all asymmetrical blur bleeding using precise DO and DO NOT design constraints.
+
+1. CORRECT PIN-CODE ANIMATION GLITCH (DO & DO NOT):
+- DO NOT: Render any messy, asymmetrical blue glow or shadow spilling downward below the dot row. The animation must never leak or look like a blurry smear.
+- DO: Completely replace the bottom blur with a clean, mathematically centered "Active Pulse State" strictly for the 3rd dot from the left.
+- DO: Render the 1st and 2nd dots as perfectly flat, crisp, solid corporate blue circles with zero glow and distinct, sharp edges.
+- DO: Give the 3rd dot (the live input) a subtle, clean 10% scale-up pulse accompanied by a soft, perfectly symmetrical circular outer aura/halo centered exactly behind it.
+- DO NOT: Allow the active dots to touch or blend. Maintain a strict, uniform horizontal gap between all 8 solid dots.
+
+2. MAINTAIN LAYOUT PURITY (DO & DO NOT):
+- DO: Keep the perfectly aligned user selection dropdown and the language segmented control ("أرقام / English / عربي") exactly as structured.
+- DO NOT: Introduce any shifting in typography or structural cards; ensure the interface remains premium, minimalist, and production-ready under the NimaTech design framework.

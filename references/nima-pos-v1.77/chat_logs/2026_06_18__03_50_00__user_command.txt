@@ -1,0 +1,1 @@
+the user requested to continue implementing the Returns & Expired Goods Logistics and the Insurance & Prescriptions Copy features in the Pharmacy POS, ensuring co-payment split and digital prescription image archives are functional offline-level, following all default guidelines and rules.

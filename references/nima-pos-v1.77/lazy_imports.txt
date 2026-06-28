@@ -1,0 +1,224 @@
+const Consignments = lazy(() => import("./pages/inventory/Consignments"));
+const Layaways = lazy(() => import("./pages/sales/Layaways"));
+const Dashboard = lazy(() => import("./pages/Dashboard"));
+const POS = lazy(() => import("./pages/POS"));
+const WholesalePOS = lazy(() => import("./pages/WholesalePOS"));
+const RestaurantPOS = lazy(() => import("./pages/restaurant/RestaurantPOS"));
+const CallCenter = lazy(() => import("./pages/CallCenter"));
+const ClinicDashboard = lazy(() => import("./pages/clinics/ClinicDashboard"));
+const ClinicReception = lazy(() => import("./pages/clinics/ClinicReception"));
+const ClinicPatients = lazy(() => import("./pages/clinics/ClinicPatients"));
+const ClinicDoctors = lazy(() => import("./pages/clinics/ClinicDoctors"));
+const PhysicianCockpit = lazy(() => import("./pages/clinics/PhysicianCockpit").then(m => ({ default: m.PhysicianCockpit })));
+const RestaurantMenu = lazy(() => import("./pages/restaurant/RestaurantMenu"));
+const Products = lazy(() => import("./pages/Products"));
+const Categories = lazy(() => import("./pages/Categories"));
+const Orders = lazy(() => import("./pages/Orders"));
+const Quotations = lazy(() => import("./pages/Quotations"));
+const Customers = lazy(() => import("./pages/Customers"));
+const LeadsPipeline = lazy(() => import("./pages/crm/LeadsPipeline"));
+const Helpdesk = lazy(() => import("./pages/crm/Helpdesk"));
+const MarketingCampaigns = lazy(() => import("./pages/crm/MarketingCampaigns"));
+const Settings = lazy(() => import("./pages/Settings"));
+const ApprovalWorkflows = lazy(() => import("./pages/admin/ApprovalWorkflows"));
+const DMS = lazy(() => import("./pages/admin/DMS"));
+const DocumentEditor = lazy(() =>
+const Reports = lazy(() => import("./pages/Reports"));
+const AuditLogs = lazy(() => import("./pages/admin/AuditLogs"));
+const RoleManagement = lazy(() => import("./pages/admin/RoleManagement"));
+const SystemBackups = lazy(() => import("./pages/admin/SystemBackups"));
+const ServerResources = lazy(() => import("./pages/admin/ServerResources"));
+const ApiKeysManagement = lazy(() => import("./pages/admin/ApiKeysManagement"));
+const UserSessions = lazy(() => import("./pages/admin/UserSessions"));
+const Expenses = lazy(() => import("./pages/Expenses"));
+const Suppliers = lazy(() => import("./pages/Suppliers"));
+const VendorPortal = lazy(() => import("./pages/purchases/VendorPortal"));
+const Purchases = lazy(() => import("./pages/Purchases"));
+const Warehouse = lazy(() => import("./pages/Warehouse"));
+const AdvancedWMS = lazy(() => import("./pages/AdvancedWMS"));
+const Fulfillment = lazy(() => import("./pages/Fulfillment"));
+const StockAdjustments = lazy(() => import("./pages/StockAdjustments"));
+const MeasurementUnits = lazy(() => import("./pages/inventory/MeasurementUnits"));
+const ProductPriceHistoryLog = lazy(() => import("./pages/inventory/ProductPriceHistoryLog"));
+const ProactiveLowStockAlerts = lazy(() => import("./pages/inventory/ProactiveLowStockAlerts"));
+const BranchShipmentTracking = lazy(() => import("./pages/inventory/BranchShipmentTracking").then(m => ({default: m.BranchShipmentTracking})));
+const ProductExpiryManagement = lazy(() => import("./pages/inventory/ProductExpiryManagement").then(m => ({default: m.ProductExpiryManagement})));
+const InventoryTurnoverDashboard = lazy(() => import("./pages/inventory/InventoryTurnoverDashboard").then(m => ({default: m.InventoryTurnoverDashboard})));
+const Shifts = lazy(() => import("./pages/Shifts"));
+const UsersPage = lazy(() => import("./pages/Users"));
+const PricingRules = lazy(() => import("./pages/PricingRules"));
+const Currencies = lazy(() => import("./pages/Currencies"));
+const About = lazy(() => import("./pages/About"));
+const BarcodePrinter = lazy(() => import("./pages/BarcodePrinter"));
+const StickerPrinting = lazy(() => import("./pages/StickerPrinting"));
+const Logbook = lazy(() => import("./pages/Logbook"));
+const Capital = lazy(() => import("./pages/Capital"));
+const Kitchen = lazy(() => import("./pages/restaurant/Kitchen"));
+const Tables = lazy(() => import("./pages/restaurant/Tables"));
+const WaiterApp = lazy(() => import("./pages/restaurant/WaiterApp"));
+const StudioScheduler = lazy(() => import("./pages/StudioScheduler"));
+const Rentals = lazy(() => import("./pages/Rentals"));
+const Tailoring = lazy(() => import("./pages/Tailoring"));
+const Payroll = lazy(() => import("./pages/Payroll"));
+const CustomerDisplay = lazy(() => import("./pages/CustomerDisplay"));
+const CustomerMenu = lazy(() => import("./pages/restaurant/CustomerMenu"));
+const CustomerFeedback = lazy(() => import("./pages/CustomerFeedback"));
+const Loyalty = lazy(() => import("./pages/Loyalty"));
+const Promotions = lazy(() => import("./pages/Promotions"));
+const Installments = lazy(() => import("./pages/Installments"));
+const Returns = lazy(() => import("./pages/Returns"));
+const BranchTransfers = lazy(() => import("./pages/BranchTransfers"));
+const PurchaseOrders = lazy(() => import("./pages/PurchaseOrders"));
+const InventoryCount = lazy(() => import("./pages/InventoryCount"));
+const Employees = lazy(() => import("./pages/Employees"));
+const Attendance = lazy(() => import("./pages/Attendance"));
+const LeaveManagement = lazy(() =>
+const Loans = lazy(() =>
+const Recipes = lazy(() =>
+const WorkOrders = lazy(() =>
+const PurchaseRequests = lazy(() =>
+const RFQs = lazy(() =>
+const Projects = lazy(() =>
+const FeasibilityStudies = lazy(() =>
+const ProjectKPIs = lazy(() =>
+const Shipping = lazy(() =>
+const Tasks = lazy(() =>
+const EmployeePortal = lazy(() => import("./pages/EmployeePortal"));
+const EmployeeAnalytics = lazy(() => import("./pages/hr/EmployeeAnalytics"));
+const Delivery = lazy(() => import("./pages/Delivery"));
+const FleetManagement = lazy(() => import("./pages/logistics/FleetManagement"));
+const LegalDocuments = lazy(() => import("./pages/legal/LegalDocuments"));
+const DigitalSignature = lazy(() => import("./pages/legal/DigitalSignature"));
+const Maintenance = lazy(() => import("./pages/Maintenance"));
+const Branches = lazy(() => import("./pages/Branches"));
+const MarketMonitor = lazy(() => import("./pages/MarketMonitor"));
+const B2BSales = lazy(() => import("./pages/B2BSales"));
+const EcommerceOrders = lazy(() => import("./pages/EcommerceOrders"));
+const CommodityContracts = lazy(() =>
+const VanSales = lazy(() => import("./pages/VanSales"));
+const GiftCards = lazy(() => import("./pages/GiftCards"));
+const Subscriptions = lazy(() => import("./pages/Subscriptions"));
+const SalesTargets = lazy(() => import("./pages/SalesTargets"));
+const CRM = lazy(() =>
+const WorkCenters = lazy(() => import("./pages/manufacturing/WorkCenters"));
+const Recruitment = lazy(() => import("./pages/hr/Recruitment"));
+const Training = lazy(() => import("./pages/hr/Training"));
+const EmployeeBenefits = lazy(() => import("./pages/hr/EmployeeBenefits"));
+const DocumentManagement = lazy(() => import("./pages/hr/DocumentManagement"));
+const Payslips = lazy(() => import("./pages/hr/Payslips"));
+const AnnualBonuses = lazy(() => import("./pages/hr/AnnualBonuses"));
+const LaborCostAnalysis = lazy(() => import("./pages/hr/LaborCostAnalysis"));
+const EmployeeTurnover = lazy(() => import("./pages/hr/EmployeeTurnover"));
+const SkillsGapAnalysis = lazy(() => import("./pages/hr/SkillsGapAnalysis"));
+const SuccessionPlanning = lazy(() => import("./pages/hr/SuccessionPlanning"));
+const EmployeeSurveys = lazy(() => import("./pages/hr/EmployeeSurveys"));
+const Onboarding = lazy(() => import("./pages/hr/Onboarding"));
+const Timesheets = lazy(() => import("./pages/projects/Timesheets"));
+const PeriodicMaintenance = lazy(() =>
+const JournalEntries = lazy(() => import("./pages/accounting/JournalEntries"));
+const GeneralLedger = lazy(() => import("./pages/accounting/GeneralLedger"));
+const CostCenters = lazy(() => import("./pages/accounting/CostCenters"));
+const AssetManagement = lazy(() => import("./pages/accounting/Assets"));
+const AgingReports = lazy(() => import("./pages/accounting/AgingReports"));
+const TaxReport = lazy(() => import("./pages/accounting/TaxReport"));
+const AuditTrail = lazy(() => import("./pages/accounting/AuditTrail").then(m => ({ default: m.AuditTrail })));
+const CashFlowDashboard = lazy(() => import("./pages/accounting/CashFlowDashboard").then(m => ({ default: m.CashFlowDashboard })));
+const PettyCash = lazy(() => import("./pages/accounting/PettyCash"));
+const Budgeting = lazy(() => import("./pages/accounting/Budgeting"));
+const CostAccounting = lazy(() => import("./pages/accounting/CostAccounting"));
+const ProjectAccounting = lazy(() => import("./pages/accounting/ProjectAccounting"));
+const PartnersEquity = lazy(() => import("./pages/accounting/PartnersEquity"));
+const LetterOfCredits = lazy(() => import("./pages/accounting/LetterOfCredits"));
+const DeferredRevenues = lazy(() => import("./pages/accounting/DeferredRevenues"));
+const ZakatAndTaxes = lazy(() => import("./pages/accounting/ZakatAndTaxes"));
+const TrustAccounts = lazy(() => import("./pages/accounting/TrustAccounts"));
+const RevenueRecognition = lazy(() => import("./pages/accounting/RevenueRecognition"));
+const EOSBAccounting = lazy(() => import("./pages/accounting/EOSBAccounting"));
+const WIPAccounting = lazy(() => import("./pages/accounting/WIPAccounting"));
+const ContractManagement = lazy(() =>
+const Judgments = lazy(() => import("./pages/legal/Judgments"));
+const LaborInvestigations = lazy(() =>
+const IntellectualProperty = lazy(() =>
+const CorporateAffairs = lazy(() =>
+const LegalCompliance = lazy(() =>
+const LegalClients = lazy(() =>
+const LegalAgenda = lazy(() =>
+const LegalBilling = lazy(() =>
+const LegalMemos = lazy(() =>
+const TQM = lazy(() =>
+const PLM = lazy(() =>
+const CustomerPortal = lazy(() =>
+const ImportExport = lazy(() =>
+const LMS = lazy(() =>
+const PropertyManagement = lazy(() =>
+const RiskCompliance = lazy(() =>
+const LawFirm = lazy(() => import("./pages/LawFirm"));
+const PowerOfAttorney = lazy(() => import("./pages/PowerOfAttorney"));
+const LegalConsultations = lazy(() => import("./pages/LegalConsultations"));
+const EInvoicing = lazy(() =>
+const Treasury = lazy(() =>
+const Commissions = lazy(() =>
+const DemandForecasting = lazy(() =>
+const SupplierReturns = lazy(() =>
+const SupplierEvaluation = lazy(() =>
+const EventManagement = lazy(() =>
+const POSTerminals = lazy(() =>
+const SystemHealthAndLogs = lazy(() =>
+const LicenseGenerator = lazy(() => import("./pages/admin/LicenseGenerator"));
+const CareersPortal = lazy(() =>
+const AssetCustody = lazy(() =>
+const BIDashboards = lazy(() =>
+const PublicWebsite = lazy(() => import("./pages/PublicWebsite"));
+const SchoolDashboard = lazy(() => import("./pages/school").then(m => ({ default: m.SchoolDashboard })));
+const SchoolStudents = lazy(() => import("./pages/school").then(m => ({ default: m.Students })));
+const SchoolTeachers = lazy(() => import("./pages/school").then(m => ({ default: m.Teachers })));
+const SchoolClasses = lazy(() => import("./pages/school").then(m => ({ default: m.Classes })));
+const SchoolAttendance = lazy(() => import("./pages/school").then(m => ({ default: m.Attendance })));
+const SchoolGrades = lazy(() => import("./pages/school").then(m => ({ default: m.Grades })));
+const SchoolFees = lazy(() => import("./pages/school").then(m => ({ default: m.SchoolFees })));
+const SchoolTimetable = lazy(() => import("./pages/school").then(m => ({ default: m.Timetable })));
+const SchoolTransport = lazy(() => import("./pages/school").then(m => ({ default: m.Transport })));
+const SchoolLibrary = lazy(() => import("./pages/school").then(m => ({ default: m.Library })));
+const SchoolStaff = lazy(() => import("./pages/school").then(m => ({ default: m.SchoolStaff })));
+const GarageDashboard = lazy(() => import("./pages/garage").then(m => ({ default: m.GarageDashboard })));
+const GarageJobs = lazy(() => import("./pages/garage").then(m => ({ default: m.Jobs })));
+const GarageVehicles = lazy(() => import("./pages/garage").then(m => ({ default: m.Vehicles })));
+const GarageTechnicians = lazy(() => import("./pages/garage").then(m => ({ default: m.Technicians })));
+const GarageSpareParts = lazy(() => import("./pages/garage").then(m => ({ default: m.SpareParts })));
+const GarageInvoices = lazy(() => import("./pages/garage").then(m => ({ default: m.GarageInvoices })));
+const GarageAppointments = lazy(() => import("./pages/garage").then(m => ({ default: m.GarageAppointments })));
+const GarageStaff = lazy(() => import("./pages/garage").then(m => ({ default: m.GarageStaff })));
+const GymDashboard = lazy(() => import("./pages/gym").then(m => ({ default: m.GymDashboard })));
+const GymMemberships = lazy(() => import("./pages/gym").then(m => ({ default: m.Memberships })));
+const GymClasses = lazy(() => import("./pages/gym").then(m => ({ default: m.Classes })));
+const GymTrainers = lazy(() => import("./pages/gym").then(m => ({ default: m.Trainers })));
+const GymEquipment = lazy(() => import("./pages/gym").then(m => ({ default: m.Equipment })));
+const GymStore = lazy(() => import("./pages/gym").then(m => ({ default: m.GymStore })));
+const GymAccessControl = lazy(() => import("./pages/gym").then(m => ({ default: m.AccessControl })));
+const GymStaff = lazy(() => import("./pages/gym").then(m => ({ default: m.GymStaff })));
+const HotelDashboard = lazy(() => import("./pages/hotel").then(m => ({ default: m.HotelDashboard })));
+const HotelReservations = lazy(() => import("./pages/hotel").then(m => ({ default: m.Reservations })));
+const HotelRooms = lazy(() => import("./pages/hotel").then(m => ({ default: m.Rooms })));
+const HotelHousekeeping = lazy(() => import("./pages/hotel").then(m => ({ default: m.Housekeeping })));
+const HotelBilling = lazy(() => import("./pages/hotel").then(m => ({ default: m.HotelBilling })));
+const HotelDining = lazy(() => import("./pages/hotel").then(m => ({ default: m.HotelDining })));
+const HotelServices = lazy(() => import("./pages/hotel").then(m => ({ default: m.HotelServices })));
+const HotelStaff = lazy(() => import("./pages/hotel").then(m => ({ default: m.HotelStaff })));
+const ClinicStaff = lazy(() => import("./pages/clinics/ClinicStaff").then(m => ({ default: m.ClinicStaff })));
+const ClinicBilling = lazy(() => import("./pages/clinics/ClinicBilling").then(m => ({ default: m.ClinicBilling })));
+const ClinicInventory = lazy(() => import("./pages/clinics/ClinicInventory").then(m => ({ default: m.ClinicInventory })));
+const ClinicServices = lazy(() => import("./pages/clinics/ClinicServices").then(m => ({ default: m.ClinicServices })));
+const ClinicInsurance = lazy(() => import("./pages/clinics/ClinicInsurance").then(m => ({ default: m.ClinicInsurance })));
+const ClinicAssets = lazy(() => import("./pages/clinics/ClinicAssets").then(m => ({ default: m.ClinicAssets })));
+const ClinicReports = lazy(() => import("./pages/clinics/ClinicReports").then(m => ({ default: m.ClinicReports })));
+const LegalStaff = lazy(() => import("./pages/legal/LegalStaff").then(m => ({ default: m.LegalStaff })));
+const ManufacturingStaff = lazy(() => import("./pages/manufacturing/ManufacturingStaff").then(m => ({ default: m.ManufacturingStaff })));
+const RestaurantStaff = lazy(() => import("./pages/restaurant/RestaurantStaff").then(m => ({ default: m.RestaurantStaff })));
+const RestaurantDashboard = lazy(() => import("./pages/restaurant/RestaurantDashboard").then(m => ({ default: m.RestaurantDashboard })));
+const RestaurantAccounting = lazy(() => import("./pages/restaurant/RestaurantAccounting").then(m => ({ default: m.RestaurantAccounting })));
+const RestaurantReports = lazy(() => import("./pages/restaurant/RestaurantReports").then(m => ({ default: m.RestaurantReports })));
+const RestaurantInventory = lazy(() => import("./pages/restaurant/RestaurantInventory").then(m => ({ default: m.RestaurantInventory })));
+const RealEstateStaff = lazy(() => import("./pages/RealEstateStaff").then(m => ({ default: m.RealEstateStaff })));
+const WebsiteCMS = lazy(() => import("./pages/WebsiteCMS"));
+const ModulesManagement = lazy(() => import("./pages/admin/ModulesManagement"));
+const RecycleBin = lazy(() =>

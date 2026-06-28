@@ -1,0 +1,1 @@
+Fix the broken vertical alignment and clipping issue of checkout button at the bottom of the POS RTL Sidebar using professional container-driven layout guidelines. Apply a pure flexbox column layout. Ensure items list scrolls and bottom payment breakdown rests naturally at the bottom.

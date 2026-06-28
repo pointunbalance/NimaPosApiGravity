@@ -1,0 +1,1 @@
+Improve visual design of Tables screen (Table Management Dashboard), resolve text overlapping, coordinate header metrics, adjust search tab spacing, support visual capacity badges, and design custom options quick menus with move, merge, and reserved actions.

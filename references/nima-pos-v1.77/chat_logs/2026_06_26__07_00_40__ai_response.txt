@@ -1,0 +1,10 @@
+I have successfully integrated the luxury and vibrant design specifications as permanent guidelines within `/AGENTS.md` so that all current and future screens remain visually consistent, colorful, and premium.
+
+### Summary of Rules Added to `/AGENTS.md`:
+1. **Dynamic Background Washes**: Mandates replacing plain white/grey screens with elegant pastel gradients (e.g., `bg-gradient-to-tr from-sky-50/60 via-indigo-50/40 via-slate-50 to-pink-50/40`) to create warmth and aesthetic depth.
+2. **Glassmorphism Headers**: Establishes semi-transparent frosted glass design rules for headers, utility bars, and sub-toolbars.
+3. **Color-Coded Semantic Categories**: Standardizes dynamic categorizations (Amber/Orange for Meals, Sky Blue/Cyan for Beverages, Emerald/Teal for Starters, Rose/Pink for Desserts, and Yellow/Amber for Bakery products) across lists, cards, badges, and filters.
+4. **Interactive Vibrant Action Keys**: Directs all main control, checkout, and transaction footer buttons to be rendered in high-contrast solid-to-gradient gems with matching hover glow and shadows.
+5. **Polished Empty States**: Preserves premium empty state styling rules (glowing gradient bubbles, micro-animations, and bold typography) instead of simple gray icons or text.
+
+The application compiles and builds perfectly.

@@ -1,0 +1,8 @@
+Implement Spare Parts Advanced Logistics for computer and mobile maintenance:
+1. "Temporary Part Issue" (سحب مؤقت للتجربة): Allows technicians to pull a spare part to test on a customer device without marking it as immediately sold.
+   - If successful, it converts to "sold" and adds to the maintenance bill.
+   - If unsuccessful, it goes back to inventory as "used for testing" with condition tracking.
+2. "Smart Inventory Reservation" (حجز قطع الغيار الذكي):
+   - If a device needs a specific part and customer approves, "reserve" this part from inventory for this device automatically. So sales/POS agents cannot sell it by mistake!
+
+Apply to ComputerMobileParts.tsx and upgrade NimaDatabase database scheme cleanly.

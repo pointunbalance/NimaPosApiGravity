@@ -1,0 +1,6 @@
+Fix the errors in the app
+[AIS_METADATA_SECTION_START]
+error 0: Uncaught Error: Only two keyframes currently supported with spring and inertia animations. Trying to animate 1,1.35,1.2. For more information and steps for solving, visit https://motion.dev/troubleshooting/spring-two-frames
+error 1: System Error Tracked:
+Only two keyframes currently supported with spring and inertia animations. Trying to animate 1,1.35,1.2. For more information and steps for solving, visit https://motion.dev/troubleshooting/spring-two-frames
+[AIS_METADATA_SECTION_END]

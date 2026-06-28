@@ -1,0 +1,13 @@
+A precise UI macro-correction for the PIN-code indicator widget, focusing on flawless Atomic Design implementation and correct data-entry UX.
+
+1. PIN INDICATOR SPACING & SHAPE (CRITICAL BUG FIX):
+- Separate the PIN dots completely. Ensure there is a strict, mathematically even horizontal gap (e.g., 8px to 12px) between every single dot in the row.
+- The active (blue) dots must NOT overlap, touch, or bleed into each other under any circumstances. They must be rendered as perfectly round, discrete individual circles.
+- Remove any residual outer glow or blur that causes visual merging. Use a crisp, solid primary corporate blue fill for the active state.
+
+2. NUMERIC DIRECTIONALITY (LTR IN RTL CONTEXT):
+- Correct the typing progression logic: Even though the main UI dashboard is Right-to-Left (Arabic), the numeric PIN entry must visually fill from Left-to-Right. The active blue dots must strictly start from the far-left placeholder and progress rightwards.
+
+3. PRESERVE SURROUNDING UI:
+- Maintain the recently refined subtle warning-tint on the 'C' (Clear) button and the muted aesthetic of the backspace button.
+- Keep the flawless vertical alignment of the floating keypad card and the overall crisp enterprise light-mode aesthetic.

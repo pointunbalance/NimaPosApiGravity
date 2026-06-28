@@ -1,0 +1,27 @@
+📝 برومبت تحسين واجهة تسجيل الدخول والـ PIN Code
+Role: Senior UI/UX Designer & Interface Architect.
+Task: Provide visual enhancements and layout optimization for an enterprise-grade POS login and PIN-pad screen, focusing on modern dark/light split aesthetics and RTL compliance.
+
+Design Objectives & Refinements:
+
+Left Panel (PIN Pad & Input Area):
+
+PIN Display Dots: Enhance the visual state of the passcode dots (••••••). Give them a subtle transition animation when filled, and use a slightly distinct color (like the brand purple) for the active/filled dots to contrast against the empty ones.
+
+Typography & Numbers: Refine the font family inside the numeric keys (1, 2, 3...). Ensure it is perfectly centered vertically and horizontally, using a clean, highly legible geometric sans-serif or crisp digital font.
+
+Toggle Buttons: For the segmented controls (أرقام فقط, English, عربي كامل), ensure the active state stands out with premium contrast, while the text on the inactive tabs remains clearly legible but muted.
+
+Footer Brand Integration: The "DEVELOPED BY" section at the very bottom should feel integrated. Clean up the spacing around the social/phone icons to guarantee uniform micro-paddings.
+
+Right Panel (Brand & Developer Showcase):
+
+Visual Hierarchy: The hierarchy between the brand (NimaTech) and the software subtitle (نقاط بيع ذكية...) is excellent. To elevate it further, ensure the subtle background curves or gradients behind the text do not interfere with the text readability.
+
+Developer Info Card: The floating dark translucent card containing the developer profile (م/ مينا ميخائيل) can be enhanced by introducing a subtle Glassmorphism effect (backdrop-filter: blur()) with a very fine, soft border (border: 1px solid rgba(255,255,255,0.05)) to give it an elite, modern depth over the background gradient.
+
+Footer Badges: The features at the absolute bottom (بيانات آمنة, دخول محمي) can use slightly more vibrant pixel-perfect icons or soft glowing micro-states to close the design gracefully.
+
+Grid & Responsiveness Integrity:
+
+Ensure the absolute center alignment between the left (light) card and right (dark) card remains flawless on different desktop viewport scales, preventing any text or button wrapping in smaller window sizes.

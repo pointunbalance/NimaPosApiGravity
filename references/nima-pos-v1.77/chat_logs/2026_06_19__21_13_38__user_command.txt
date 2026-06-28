@@ -1,0 +1,14 @@
+A precise Enterprise UI bug-fix and polish based on image_cbafe5.jpg, specifically targeting and correcting the faulty PIN-code indicator animation.
+
+1. PIN-CODE INDICATOR FIX (CRITICAL UX):
+- Completely remove the messy, oversized, and blurry blue glow effect that spills across the PIN dots placeholder.
+- Replace it with a crisp, mathematically precise "Individual Active State" for each separate dot.
+- When a digit is entered, the corresponding dot should change sharply from its inactive light grey to a solid, high-contrast corporate blue or vibrant purple, with perfectly defined circular boundaries (no blurry bleeding or overflow).
+- Give the active dots a very subtle, sharp inner shadow or a clean 5% micro-scale pulse to simulate a premium tactile responsive feel.
+
+2. LOWER FOOTER TEXT REFINEMENT:
+- Maintain the corrected spelling for "الدعم الهاتفي" with proper padding between the text and vector icons inside all three bottom contact cards.
+
+3. GLOBAL CONSISTENCY:
+- Keep the perfectly positioned "الصوت نشط" audio toggle badge in the top navigation bar.
+- Retain the clean background gradients, crisp typography layout, and the balanced split-screen structure between the left login keypad and the right system onboarding container.

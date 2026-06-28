@@ -1,0 +1,1 @@
+User requested checking and confirming the fully-functional implementation of the integrated accounting, procurement discounts & bonuses, and FIFO/FEFO batch logic.

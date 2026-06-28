@@ -1,0 +1,15 @@
+A premium, vibrant Enterprise UI polish based on image_691a47.png. Inject luxurious, subtle color accents and refine the aesthetics while maintaining the perfectly clean minimalist layout.
+
+1. COLOR & BACKGROUND ENHANCEMENT:
+- Enrich the background outside the white login card with a very subtle, elegant fluid gradient (mixing soft ice-blue, pale silver, and a hint of lavender) to give the entire screen more depth, life, and a premium SaaS feel.
+- Make the active PIN-code dot a highly vibrant, glowing corporate blue/purple, ensuring it pops beautifully against the white surface.
+- Refine the active language toggle ("أرقام فقط"). Instead of a flat, heavy, dominating blue, use a sleek, modern gradient or a softer premium tone so it rests comfortably in the visual hierarchy without overpowering the keypad.
+
+2. CRITICAL UI ALIGNMENT FIX:
+- Fix the user profile avatar circle (with the green status dot) in the top dropdown menu ("مدير النظام"). It is currently overlapping and clipping out of the right edge. Neatly embed it perfectly inside the input field with proper internal padding.
+
+3. KEYPAD TACTILE REFINEMENT:
+- Replace the harsh, thick bottom 3D shadows on the keypad buttons with soft, modern, diffuse drop-shadows (premium subtle tactile depth or soft neumorphism).
+- Maintain the elegant soft pastel-red tint on the 'C' button. 
+- Give the backspace button a very subtle, muted cool-grey/indigo tint to beautifully balance the colors on the bottom row.
+- Ensure the pristine Cairo/Tajawal Arabic typography remains razor-sharp and perfectly centered.

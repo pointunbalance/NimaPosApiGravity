@@ -1,0 +1,14 @@
+The ultimate production-ready Enterprise Unified Login Portal redesign based on image_cac68a.jpg. Apply strict modern, minimalist UI/UX principles, clean geometric aesthetics, and perfect RTL Arabic layout utilizing premium fonts like 'Cairo' or 'Tajawal'.
+
+1. FUNCTIONAL UX FOR KEYPAD (LEFT PANEL):
+- Maintain the fixed, precise solid-blue active state for the PIN indicator dots.
+- Upgrade the action buttons on the keypad: Apply a very subtle, soft warning tint (e.g., pale pastel orange/red) to the 'C' (Clear) button, and a muted secondary grey tint to the backspace button. This follows standard Enterprise POS UX to minimize input errors.
+- Ensure the floating login card is absolutely vertically centered in relation to the taller right-side feature panel to achieve mathematical visual harmony.
+
+2. TYPOGRAPHIC HIERARCHY (RIGHT PANEL):
+- Increase the font weight (make it explicitly Bolder) for the individual feature titles (e.g., "نقاط بيع وقنوات بيع متميزة", "محاسبة آلية ونظام أستاذ عام موحد") to sharply distinguish them from their descriptive body text.
+- Maintain the flawless spacing inside the bottom developer and contact cards, keeping the crisp, legible typography for "الدعم الهاتفي" and other labels.
+
+3. ENTERPRISE AESTHETICS & MICRO-DETAILS:
+- Apply a highly premium, subtle frosted-glass effect (Glassmorphism / Background-blur) to the top navigation bar to separate it elegantly from the light abstract geometric curves in the background.
+- Keep the light-mode theme pristine, relying on high-contrast navy blues, vibrant vector icons encapsulated in soft pastel circles, and micro-shadows that give the interactive cards a tactile, physical presence.

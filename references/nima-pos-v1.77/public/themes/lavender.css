@@ -1,0 +1,19 @@
+/* Lavender Theme */
+html.lavender body, html.lavender {
+  background-color: #ede9fe !important;
+  color: #4c1d95 !important;
+}
+
+html.lavender .bg-white { background: linear-gradient(135deg, #ffffff 0%, #f5f3ff 100%) !important; }
+html.lavender .bg-slate-50, html.lavender .bg-gray-50 { background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%) !important; }
+html.lavender .bg-slate-100, html.lavender .bg-gray-100 { background-color: #ddd6fe !important; }
+html.lavender .border-slate-100, html.lavender .border-gray-100, html.lavender .border-slate-200, html.lavender .border-gray-200 { border-color: #ddd6fe !important; }
+html.lavender .border-slate-300, html.lavender .border-gray-300 { border-color: #c4b5fd !important; }
+
+html.lavender .text-slate-500, html.lavender .text-gray-500 { color: #7c3aed !important; }
+html.lavender .text-slate-600, html.lavender .text-gray-600, html.lavender .text-slate-700, html.lavender .text-gray-700 { color: #6d28d9 !important; }
+html.lavender .text-slate-800, html.lavender .text-gray-800, html.lavender .text-slate-900, html.lavender .text-gray-900, html.lavender .text-black, html.lavender .text-indigo-900 { color: #4c1d95 !important; }
+
+/* Dashboard Active Tabs Override */
+html.lavender .bg-indigo-50 { background-color: #ddd6fe !important; }
+html.lavender .text-indigo-700, html.lavender .text-indigo-600, html.lavender .text-indigo-500 { color: #6d28d9 !important; }

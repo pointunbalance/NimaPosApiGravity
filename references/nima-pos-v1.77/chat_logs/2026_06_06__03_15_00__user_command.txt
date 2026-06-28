@@ -1,0 +1,4 @@
+لسه برضو القائمه مش بتظهر (The list/menu is still not appearing)
+sama error
+Apply style changes to the selected element(s).
+CSS selector 1: div#root:nth-of-type(1) > div#main-app-container:nth-of-type(1) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > button:nth-of-type(12)

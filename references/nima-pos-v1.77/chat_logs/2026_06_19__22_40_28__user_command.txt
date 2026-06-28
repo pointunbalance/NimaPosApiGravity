@@ -1,0 +1,13 @@
+A high-fidelity UI macro-refinement based on image_bf8065.jpg, specifically capturing a real-time dynamic "pulsing/blinking" typing animation for the PIN-code indicator.
+
+1. DYNAMIC PIN-CODE ANIMATION (PULSE EFFECT):
+- Keep the perfectly separated left-to-right dot layout (8 dots total).
+- The first 3 dots from the left are active (corporate blue). To visually simulate a live "blinking/pulsing" animation in a static frame:
+- Render the 1st and 2nd dots as standard, solid blue circles.
+- Render the 3rd dot as actively "pulsing": make it slightly larger (scaled up by 10-15%) and add a soft, dynamic radiating blue outer glow to make it look like it just lit up.
+- The remaining 5 dots must stay as inactive, flat light-grey circles with no effects.
+
+2. PRESERVE PERFECTED UI ELEMENTS:
+- Maintain the exact styling of the keypad, including the subtle pastel red/warning background tint uniquely applied to the 'C' (Clear) button.
+- Keep the exact vertical alignment between the left PIN pad widget and the right enterprise features panel.
+- Retain the frosted glassmorphism Topbar, the typography hierarchy, and the pristine light-mode background gradients exactly as they currently appear.

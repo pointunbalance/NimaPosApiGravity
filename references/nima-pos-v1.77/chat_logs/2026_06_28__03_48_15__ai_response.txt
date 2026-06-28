@@ -1,0 +1,13 @@
+I have continued the refactoring improvements in the app:
+- Inspected remaining pages for line counts and architecture guidelines.
+- Identified `/pages/AdvancedWMS.tsx` exceeding the 300-line limit (770 lines).
+- Refactored `AdvancedWMS` by creating a custom React state hook (`/components/wms/useWMSState.ts`) to manage state, queries, and business logic.
+- Created reusable and modular components:
+  - `/components/wms/BatchModal.tsx`
+  - `/components/wms/SerialModal.tsx`
+  - `/components/wms/TransferModal.tsx`
+  - `/components/wms/BatchesTable.tsx`
+  - `/components/wms/SerialsTable.tsx`
+- Replaced all uses of native browser confirmation dialogs (`window.confirm`) with the custom `ConfirmModal` to prevent iFrame errors.
+- Reduced `/pages/AdvancedWMS.tsx` size from 770 lines to 175 lines.
+- Ensured all other main pages are under the 300-line limit.

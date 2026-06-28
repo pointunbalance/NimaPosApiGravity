@@ -1,0 +1,12 @@
+A high-fidelity Enterprise UI refinement based on image_be0922.jpg, specifically upgrading the password/PIN-code indicator dots to fix weak visual presence and simulate a strong, snappy typing animation.
+
+1. PIN-CODE STARS/DOTS REDESIGN (STRONG UX):
+- Completely replace the current weak, hollow, outlined circles with premium, solid filled dots.
+- Implement a visually strong left-to-right active typing animation effect.
+- The 1st dot (Active State): Render it as a solid, vibrant corporate purple/blue circle. Scale it up slightly (e.g., 15% larger than the others) and apply a distinct, soft outer glow or drop-shadow to simulate a strong "pop" or "lit up" animation.
+- The remaining 7 dots (Inactive State): Render them as completely solid, subtle light-grey dots (no borders, no hollow centers) to serve as clean placeholders.
+- Ensure strict, perfectly even horizontal spacing between all 8 dots.
+
+2. PRESERVE EXISTING UI PERFECTION:
+- Keep the exact current styling of the keypad, specifically preserving the soft pastel red/warning background tint uniquely applied to the 'C' (Clear) button.
+- Maintain the flawless vertical alignment, typography hierarchy, the frosted Topbar, and the elegant light-mode background gradient curves exactly as they are.

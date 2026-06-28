@@ -1,0 +1,15 @@
+A strict, bold, and modern Enterprise UI color and background overhaul based on image_636d66.jpg. Follow the DO and DO NOT constraints below to implement a flat aesthetic with high visual impact.
+
+1. SOLID FLAT COLOR BACKGROUND (DO & DO NOT):
+- DO: Completely replace the pale, washed-out gradient background with a powerful, solid, and flat corporate color—specifically a rich, high-contrast Bold Royal Blue (#0F2C59 or #1A365D).
+- DO NOT: Use any smooth blurred color gradients, volumetric lighting, or soft blended clouds. The background canvas must be entirely flat and solid.
+
+2. FLAT VECTOR SPACE ANIMATION (DO & DO NOT):
+- DO: Utilize the empty space in the center and backdrop by injecting a flat, minimalist vector line animation (Dynamic Abstract Geometric Vector Waves or Matrix Grid Lines).
+- DO: Ensure the animated vector lines use a subtle, slightly lighter flat tone of the same background blue (Tone-on-tone effect) to simulate a live, slow-pulsing digital network grid.
+- DO NOT: Add any 3D elements, heavy outer glows, realism physics, or neon streaks. Keep the animation strictly flat, 2D, sharp-edged, and modern.
+
+3. FOREGROUND PANEL BALANCING (DO & DO NOT):
+- DO: Keep the left floating keypad card and the right 3 features list cards crisp white (#FFFFFF) to starkly pop against the new strong solid blue background, creating extreme premium contrast.
+- DO: Maintain the wave/heartbeat pulse logic for the first 3 active PIN dots and the subtle warning tint on the 'C' key.
+- DO NOT: Change any of the layout positions, typography hierarchies, or corporate Arabic texts from image_636d66.jpg.

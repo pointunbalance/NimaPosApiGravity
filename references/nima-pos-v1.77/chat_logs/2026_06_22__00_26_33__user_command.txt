@@ -1,0 +1,15 @@
+An absolute final, high-contrast Enterprise UI production mockup render based on image_63c6dd.png. Fully realize the flat architectural geometric theme and sequential animations using strict DO and DO NOT design rules.
+
+1. GRAPHIC FLAT ANIMATION IN BACKGROUND (DO & DO NOT):
+- DO: Pop out and clearly define the flat vector animation in the background canvas and the center empty space. Render a sharp, minimalist corporate tech grid pattern (blueprint/matrix grid lines) combined with slow-pulsing abstract geometric vector lines.
+- DO: Use a precise tone-on-tone color execution—the animated line grid must be just a slightly lighter, subtle blue tone against the solid deep navy blue background (#0F2C59) to breathe movement into the screen without visual noise.
+- DO NOT: Render any 3D shadows, fluid gaseous clouds, or glowing neon light trails in the background. Keep it strictly flat 2D vector art.
+
+2. DYNAMIC PIN-PAD HEARTBEAT WAVE (DO & DO NOT):
+- DO: Apply the fluid ocean wave and heartbeat scale animation across the active PIN dots from left to right. 
+- DO: Give the 3rd active blue dot a clear, perfectly circular, symmetrical soft glowing aura radiating evenly behind it to signal a live input keystroke, while the first two dots stay solid crisp blue.
+- DO NOT: Let the dots overlap, smudge, or bleed asynchronously downward.
+
+3. PRESERVE BRANDING AND TYPOGRAPHY (DO & DO NOT):
+- DO: Maintain the perfect placement of the 3 condensed features cards and the official developer section "م/ مينا ميخائيل - المطور المعتمد (NimaTech Enterprise Server)" at the bottom right.
+- DO: Keep the crisp white (#FFFFFF) foreground panels, the elegant topbar navigation, and the solid contrast layout exactly as structured in image_63c6dd.png using the premium Arabic 'Cairo' font family.

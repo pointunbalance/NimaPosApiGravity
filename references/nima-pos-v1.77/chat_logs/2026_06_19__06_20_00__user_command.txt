@@ -1,0 +1,23 @@
+User Request:
+A high-end, production-ready enterprise SaaS dashboard UI redesign based on the layout of image_58ff5f.png, focusing on pixel-perfect details, modern spacing, and premium data visualization.
+
+1. LEFT PANEL (PIN LOG_IN WIDGET):
+- Eliminate the vast empty white background around the login panel; integrate it seamlessly into a subtle dark/light fluid backdrop.
+- Refine the white central floating card containing the Arabic text "مرحباً بعودتك". Ensure the keypad buttons (1-9, C, backspace) have elegant, soft inner shadows (neumorphic touch) with perfectly centered, crisp bold typography. 
+- Improve the dropdown selector for "مدير النظام" with a cleaner arrow and a micro-status indicator dot.
+
+2. CENTER ANALYTICS PANEL & PRIVACY LOCK:
+- Replace the sharp dark rectangular floating alert "البيانات مقفلة للخصوصية" with a full-panel premium frosted glassmorphism blur effect over the entire analytics section.
+- Place a sleek, glowing golden padlock icon in the center of the blurred area with a beautifully typeset, high-contrast white text for the privacy warning.
+- Behind the translucent blur, enhance the hourly performance chart ("مؤشر الأداء والتحليل الهيكلي الساعي") with a smooth, multi-layered vibrant purple-to-blue gradient fill, adding thin, semi-transparent grid lines and glowing data points at the wave peaks.
+- Clean up the layout of the KPI cards (like "SAR 14,350.25") ensuring clear typographic hierarchy between labels and numbers.
+
+3. RIGHT SIDEBAR NAVIGATION:
+- Maintain the deep navy blue enterprise sidebar but upgrade the navigation icons (لوحة القيادة, المبيعات, المخازن) into modern dual-tone or subtly colored high-fidelity vector icons.
+- Increase the vertical padding between menu items for a balanced, breathable layout.
+- The bottom system metrics (Local IndexedDB Node, Host Container, Response Time) should use a clean monospaced font with distinct neon-green and soft-blue color coding for real-time status readability.
+
+4. TOPBAR & GLOBAL AESTHETICS:
+- Enhance the top search bar with smoother rounded corners, a more delicate search icon, and balanced placeholder text padding.
+- Refine the profile section for "أندري ميكولا" ensuring the user avatar badge is crisp and aligns perfectly with the branch switcher dropdown ("الفرع الرئيسي - الرياض").
+- Overall UI lighting should be soft, discarding harsh grids, and utilizing rich micro-shadows, balanced border radiuses (12px to 16px), and a premium professional color scheme of deep navy, royal purple accents, and crisp white card surfaces.

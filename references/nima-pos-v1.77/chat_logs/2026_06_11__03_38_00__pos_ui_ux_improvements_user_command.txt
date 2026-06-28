@@ -1,0 +1,4 @@
+POS Main Dashboard - Iteration 2:
+1. Fix Sidebar Vertical Layout (unused vertical space under carbonated water, flex-grow container stretch, max-height, bottom payment buttons sticky, shadow indicators).
+2. Fix Product Grid clipping (Samsung charging socket text & bottom cuts, bottom padding, equal height rows).
+3. Improve Top Bar UI/UX (Printer, lock, refresh button distributions, small margins, category tabs hover interactive transitions).

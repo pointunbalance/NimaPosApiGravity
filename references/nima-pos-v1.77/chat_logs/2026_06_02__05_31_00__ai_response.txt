@@ -1,0 +1,17 @@
+I have successfully designed and built the Device Location & Shelf Tracking sub-system ("لوجستيات حركة الجهاز والرفوف") within the computer and mobile maintenance module:
+
+1. **Shelf/Bin Mapping ("نظام تكويد الرفوف")**:
+   - Expanded `MaintenanceOrder` in `types.ts` with `shelfCode?: string` to link each maintenance ticket securely with its physical shelf location.
+   - Built an interactive, dynamic workshop shelf map visualizer that groups shelves into logical workflow zones (Received, Testing, Under Repair, Ready for Delivery, Delivered/Archived).
+   - Shows current capacity configurations, actual counts, and real-time occupancy percentages.
+
+2. **Quick Location Scanner & Updater ("تحديث الموقع السريع")**:
+   - Implemented a simulated laser barcode scanner tool where employees scan the device barcode (e.g. `DEV-1`) and then scan the shelf/bin barcode (e.g. `SHELF-C2`) to relocate devices instantly with simulated success/failure buzzer beeps.
+   - Provided a manual assignment dropdown fallback for desktop users to match devices to shelves directly.
+   - Logs live scanner streams inside a retro, active terminal log console showing success/err feedback streams.
+
+3. **Sticker and Label Generator ("طباعة ملصق رف")**:
+   - Built a dynamic print page generation routine to print QR/barcoded shelf stickers and custom device maintenance ticket tags on thermal POS label printers.
+
+4. **Sidebar Navigation Integration**:
+   - Added `computer-mobile-maintenance/shelves` as a designated route inside `App.tsx` and configured it neatly in `/components/layout/navigationConfig.ts` with the `MapPin` icon, fully responsive and styled on a clean, day-theme visual aesthetic.

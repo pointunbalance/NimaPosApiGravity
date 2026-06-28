@@ -2,15 +2,232 @@
 <html lang="ar" dir="rtl">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nima Frontend Starter</title>
-    <meta
-      name="description"
-      content="Starter frontend blueprint for future Nima sales applications."
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="https://lucide.dev/favicon.ico"
     />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>الشركة المصرية العامة | Nima Pos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                50: "#eef2ff",
+                100: "#e0e7ff",
+                500: "#6366f1",
+                600: "#4f46e5",
+                700: "#4338ca",
+                800: "#3730a3",
+                900: "#312e81",
+                950: "#1e1b4b",
+              },
+              dark: {
+                800: "#1e293b",
+                900: "#0f172a",
+                950: "#020617",
+              },
+            },
+            fontFamily: {
+              sans: ["Tajawal", "sans-serif"],
+            },
+            boxShadow: {
+              glass: "0 8px 32px 0 rgba(31, 38, 135, 0.07)",
+              glow: "0 0 15px rgba(99, 102, 241, 0.5)",
+            },
+          },
+        },
+      };
+    </script>
+    <script>
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme && savedTheme !== 'light') {
+        document.documentElement.classList.add(savedTheme);
+      } else if (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    </script>
+    <style>
+      html, body, #root {
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        height: 100vh !important;
+        min-height: 100vh !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+      }
+      html {
+        background-color: #f3f4f6;
+      }
+      body {
+        font-family: "Tajawal", sans-serif;
+        background-color: transparent;
+        color: #1e293b;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow-y: hidden; /* Prevent body scroll, handle in app */
+        margin: 0;
+      }
+      
+      ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 20px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
+      }
+
+      .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .hide-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      /* Glassmorphism Utilities */
+      .glass-panel {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+
+      .glass-dark {
+        background: rgba(15, 23, 42, 0.6);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-right: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      /* Input Reset */
+      input:focus,
+      select:focus,
+      textarea:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+        border-color: #6366f1;
+      }
+
+      /* Animation classes */
+      .fade-in-up {
+        animation: fadeInUp 0.4s ease-out forwards;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Theme Transition Animation & Circular Reveal */
+      ::view-transition-image-pair(root) {
+        isolation: auto;
+      }
+
+      ::view-transition-old(root),
+      ::view-transition-new(root) {
+        position: absolute !important;
+        inset: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        filter: none !important;
+        animation: none !important;
+        mix-blend-mode: normal !important;
+      }
+
+      ::view-transition-old(root) {
+        z-index: 1;
+      }
+
+      ::view-transition-new(root) {
+        z-index: 999999 !important;
+        animation: theme-ripple-effect 850ms cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+      }
+
+      @keyframes theme-ripple-effect {
+        0% {
+          clip-path: circle(0px at var(--clip-x, 50%) var(--clip-y, 50%));
+          opacity: 0;
+        }
+        15% {
+          opacity: 1;
+        }
+        100% {
+          clip-path: circle(var(--clip-r, 100%) at var(--clip-x, 50%) var(--clip-y, 50%));
+          opacity: 1;
+        }
+      }
+
+      /* Global smooth background and color transition ONLY when a theme switch is actively happening */
+      .theme-changing,
+      .theme-changing *,
+      html.theme-changing,
+      html.theme-changing *,
+      html.theme-changing body,
+      html.theme-changing #root,
+      html.theme-changing #root * {
+        transition: background-color 750ms cubic-bezier(0.16, 1, 0.3, 1),
+                    color 750ms cubic-bezier(0.16, 1, 0.3, 1),
+                    border-color 750ms cubic-bezier(0.16, 1, 0.3, 1),
+                    box-shadow 750ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+      }
+    </style>
+    <link rel="stylesheet" href="/index.css" />
+    <link rel="stylesheet" href="/themes/dark.css" />
+    <link rel="stylesheet" href="/themes/ocean.css" />
+    <link rel="stylesheet" href="/themes/nature.css" />
+    <link rel="stylesheet" href="/themes/rose.css" />
+    <link rel="stylesheet" href="/themes/lavender.css" />
+    <link rel="stylesheet" href="/themes/sunset.css" />
+    <link rel="stylesheet" href="/themes/orchid.css" />
+    <style>
+      /* Disable backdrop-filter globally to prevent serious browser bugs with Arabic shaping (letters disconnected/reversed underneath modal overlays) */
+      *, *::before, *::after {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+      }
+
+      /* Atomic Design Global Visual Feedback for Buttons */
+      button:not(:disabled):not(.no-feedback) {
+        transition:
+          transform 0.1s ease-in-out,
+          filter 0.1s ease-in-out,
+          background-color 0.2s,
+          color 0.2s,
+          border-color 0.2s,
+          box-shadow 0.2s !important;
+      }
+      button:not(:disabled):not(.no-feedback):active {
+        transform: scale(0.96) !important;
+        filter: brightness(0.95);
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
-  </html>
+</html>

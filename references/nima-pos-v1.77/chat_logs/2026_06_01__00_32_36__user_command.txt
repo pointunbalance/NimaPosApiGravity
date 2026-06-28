@@ -1,0 +1,7 @@
+اعد تصميم التاب ده
+[AIS_METADATA_SECTION_START]
+CSS selector 1: div#root:nth-of-type(1) > div#main-app-container:nth-of-type(1) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div#computer-mobile-maintenance-root:nth-of-type(1)
+CSS 1: {
+
+}
+[AIS_METADATA_SECTION_END]

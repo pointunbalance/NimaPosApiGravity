@@ -1,0 +1,1 @@
+نفذ (Execute the UI/UX changes on POS Sidebar and Cart Sidebar details)

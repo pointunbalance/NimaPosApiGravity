@@ -1,0 +1,6 @@
+تم مراجعة ومعالجة كافة صفحات ملفات الإدارة القانونية للتأكد من التالي:
+1. عدم تخطي أي صفحة أو ملف لـ 300 سطر برمجي (Strict 300-Line Limit).
+2. استبدال كافة رسائل التأكيد والتبيهات الأصلية (window.confirm) بنافذة تأكيد مخصصة (ConfirmModal) متوافقة بالكامل مع بيئة الـ Sandbox.
+3. تفكيك الملفات الطويلة وتجريد الـ Modals الطويلة إلى مكونات منفصلة:
+   - تم تفكيك ملف المستندات LegalDocuments.tsx من 623 سطر إلى 243 سطر برمجي عبر نقل الـ DocumentModal إلى ملف منفصل.
+   - تم تصحيح كافة الملفات الأخرى مثل Judgments.tsx و CorporateAffairs.tsx و IntellectualProperty.tsx و LegalClients.tsx و LegalMemos.tsx و LegalAgenda.tsx وتأكيد التزامها المكتمل بهيكلية وتوجيهات المشروع.

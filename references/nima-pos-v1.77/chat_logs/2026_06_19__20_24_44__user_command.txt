@@ -1,0 +1,14 @@
+A production-ready Enterprise UI enhancement layout based on image_cc94a9.jpg, strictly addressing critical UX/UI bugs regarding element positioning and text readability.
+
+1. AUDIO/MUTE ICON RE-POSITIONING (CRITICAL UX):
+- Remove the floating mute/audio icon from its awkward, isolated position on the upper-left of the screen.
+- Relocate this audio toggle control into a more logical UX zone: either integrate it seamlessly as a clean micro-action icon into the global top white Navbar (Topbar) near the corporate titles, or embed it neatly within the corner header of the white login card itself to intuitively control keypad sound effects.
+
+2. DEVELOPER CREDENTIALS & FOOTER TYPOGRAPHY (CRITICAL UI):
+- Address the illegible font sizing in the developer info and contact cards at the bottom right.
+- Significantly increase the font size and weights of all text and labels inside the bottom contact badges (including "المهندس المطور المعتمد", phone numbers, and links) to guarantee sharp, accessible reading contrast.
+- Ensure the structural hierarchy of the footer remains grounded and balanced, filling the lower container area beautifully.
+
+3. SPATIAL & COLOR OPTIMIZATION:
+- Keep the vertical alignment shift from previous adjustments, ensuring the left PIN-pad card and the right feature list card share a harmonious baseline.
+- Retain the dual-tone modern vector icons for feature list items, the sleek topbar layout, and the premium micro-shadow light-mode aesthetic across the system dashboard.

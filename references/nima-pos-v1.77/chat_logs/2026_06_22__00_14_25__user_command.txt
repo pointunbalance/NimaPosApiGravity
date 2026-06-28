@@ -1,0 +1,15 @@
+A highly advanced UI micro-animation refinement for the 8 PIN-code dots based on image_635d83.png. Implement a dynamic, fluid fluid-wave and heartbeat pulse animation simulation across the active dots using strict DO and DO NOT constraints.
+
+1. HEARTBEAT & OCEAN WAVE ANIMATION LOGIC (DO & DO NOT):
+- DO: Create a fluid, sequential wave effect across the first 3 active corporate blue dots from the left, simulating an active fluid-wave motion and a heartbeat rhythmic pulse simultaneously.
+- DO: Vary the scale sizes of the first 3 active dots dynamically to represent different phases of a wave:
+  - 1st dot: Scaled down slightly to 90% (contracting phase).
+  - 2nd dot: Scaled to standard 100% (rising phase).
+  - 3rd dot: Scaled up to 120% (peak heartbeat phase) to show live typing impact.
+- DO: Give ONLY the 3rd dot a premium, perfectly circular, symmetrical soft neon blue outer glow/aura that breathes dynamically centered exactly behind it.
+- DO NOT: Render any flat, frozen, or static active dots for the first three. They must all look interconnected in a dynamic sequence from left to right.
+- DO NOT: Allow any asymmetrical blur spill or downward trailing mist below the dots; edges must remain crisp and mathematically aligned.
+
+2. INACTIVE DOTS STATUS (DO & DO NOT):
+- DO: Keep the remaining 5 dots completely flat, solid, neutral light-grey placeholders with a constant 100% scale and zero effects.
+- DO: Maintain a strict, uniform horizontal gap between all 8 individual solid circles, preventing any merging or overlapping.

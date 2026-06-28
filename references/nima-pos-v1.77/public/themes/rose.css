@@ -1,0 +1,19 @@
+/* Rose Theme */
+html.rose body, html.rose {
+  background-color: #ffe4e6 !important;
+  color: #881337 !important;
+}
+
+html.rose .bg-white { background: linear-gradient(135deg, #ffffff 0%, #fff1f2 100%) !important; }
+html.rose .bg-slate-50, html.rose .bg-gray-50 { background: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%) !important; }
+html.rose .bg-slate-100, html.rose .bg-gray-100 { background-color: #fecdd3 !important; }
+html.rose .border-slate-100, html.rose .border-gray-100, html.rose .border-slate-200, html.rose .border-gray-200 { border-color: #fecdd3 !important; }
+html.rose .border-slate-300, html.rose .border-gray-300 { border-color: #fda4af !important; }
+
+html.rose .text-slate-500, html.rose .text-gray-500 { color: #e11d48 !important; }
+html.rose .text-slate-600, html.rose .text-gray-600, html.rose .text-slate-700, html.rose .text-gray-700 { color: #be123c !important; }
+html.rose .text-slate-800, html.rose .text-gray-800, html.rose .text-slate-900, html.rose .text-gray-900, html.rose .text-black, html.rose .text-indigo-900 { color: #881337 !important; }
+
+/* Dashboard Active Tabs Override */
+html.rose .bg-indigo-50 { background-color: #fecdd3 !important; }
+html.rose .text-indigo-700, html.rose .text-indigo-600, html.rose .text-indigo-500 { color: #be123c !important; }

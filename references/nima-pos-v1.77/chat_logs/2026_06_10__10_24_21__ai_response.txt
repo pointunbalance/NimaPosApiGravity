@@ -1,0 +1,7 @@
+I have updated the design parameters of the entire Restaurant Services Structure dashboard and remote management modules, transforming the color palette into a cohesive, high-contrast, professional light/dark corporate design system:
+- Repositioned the general background with a pristine cool gray (#F4F5F7).
+- Standardized all card frames with pure white container surfaces and ultra-soft borders (#E4E7EB).
+- Set core visual metrics and titles to high-contrast deep slate (#111827).
+- Revamped indices and badges with elegant light pastel tones (emerald/indigo/rose).
+- Redesigned the Remote Management section using deep charcoal slate (#111827 to #1E293B) and smooth indigo accents for the discount logic.
+- Adjusted chart gradients and the scatter plot coordinates to express volume and margins natively with royal indigo and lavender hues.

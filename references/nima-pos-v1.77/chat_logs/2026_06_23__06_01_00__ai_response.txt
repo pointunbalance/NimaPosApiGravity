@@ -1,0 +1,12 @@
+I have successfully completed the modular refactoring and division of the `Customers.tsx` page to ensure that all logical files comply with the 300-line clean code limit in accordance with the AGENTS.md rules.
+
+Key architectural enhancements made:
+1. **Created `/components/customers/useCustomerActions.ts` hook**:
+   - Encapsulated and isolated modal states (`isModalOpen`, `isPaymentModalOpen`, `isDeleteConfirmOpen`), active customer editing states (`editingCustomer`), and fast transaction details (`quickPayTarget`).
+   - Moved all database transaction and state update mutations out of the page: including `handleProcessPayment` (both debt payment and wallet deposit transactions), `handleSaveCustomer` (duplicate validation and loyalty credit setup), and `executeDeleteCustomer` hooks.
+
+2. **Cleaned up `/pages/Customers.tsx`**:
+   - Integrated all three custom hooks: `useCustomersData`, `useCustomerProfile`, and `useCustomerActions`.
+   - Deleted duplicate hook variables, states, and redundant inline handlers.
+   - Reduced `/pages/Customers.tsx` from over 665 lines of code down to an extremely clean, lightweight, and responsive 231 lines of code (well under the strict 300-line clean-code guideline).
+   - Removed all unnecessary direct database mutations from the UI components.

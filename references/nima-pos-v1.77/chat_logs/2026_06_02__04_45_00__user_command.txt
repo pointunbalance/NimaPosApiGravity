@@ -1,0 +1,1 @@
+User requested to verify, integrate and enhance the general settings module, specifically the printer configurations (adding support for both thermal 80mm invoice printers and barcode label printers) and persistent backup strategies (automatic local or cloud backups with intervals).

@@ -1,0 +1,17 @@
+A highly refined, minimalist Enterprise UI clean-up based on image_6983bd.jpg, specifically targeting and resolving the chaotic information overload in the middle section of the login card.
+
+1. ELIMINATE CLUTTER (MIDDLE SECTION):
+- Completely remove the cluttered user-details card (the one with the gradient border, avatar, department info, and audit log text). It is functionally redundant.
+- Completely remove the blue informational alert box ("رمز المرور PIN يتكون من..."). It creates unnecessary cognitive load. The 8 PIN dots below already visually indicate the required length perfectly.
+
+2. STREAMLINE USER SELECTION:
+- Upgrade the primary dropdown ("مدير النظام"). Integrate a small, elegant user avatar (circular profile picture with a tiny green active dot) directly inside or right next to the dropdown input field to show the selected user cleanly and efficiently.
+
+3. REFINED LAYOUT & ERGONOMICS:
+- Keep the language toggle pill ("أرقام فقط / English / عربي") but ensure it has elegant, breathable padding.
+- With the middle clutter removed, adjust the vertical spacing. Move the 8 PIN dots and the numeric keypad slightly upward so they sit comfortably and ergonomically in the center of the white card.
+- Place the security disclaimer ("جميع العمليات مسجلة للأمان والرقابة") as a single, ultra-small, muted light-grey text line at the absolute bottom footer of the card or screen, completely out of the way of the keypad.
+
+4. PRESERVE AESTHETICS:
+- Maintain the premium zero-defect Cairo/Tajawal Arabic typography.
+- Keep the premium soft light-mode aesthetic, the colored 'C' and backspace buttons on the keypad, and the smooth background gradients.

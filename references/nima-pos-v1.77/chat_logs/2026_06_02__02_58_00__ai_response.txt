@@ -1,0 +1,17 @@
+I have completed the outstanding implementations and refinements for the POS & Sales system's Inventory and Purchases modules with polished precision and state-governed workflows:
+
+1. **Enhanced Product Profiles (Inventory Module):**
+   - **Visual Grid Mode Branding:** Added support to display the item's brand name next to the category in Grid mode for immediate visual recognition.
+   - **Dynamic Metadata & Serial Support:** Displays serial tracking status badges for high-value items, identifying warranty eligibility at a glance.
+
+2. **Refactored Purchases Screen (`Purchases.tsx`):**
+   - **Smart Moving Average Cost Calculations:** Formulated mathematical recalculations of Moving Average Cost on items when saving incoming supplier invoices:
+     `Moving Average Cost = ((Current Stock * Previous Average Cost) + (Purchased Qty * Purchased Cost)) / (Current Stock + Purchased Qty)`
+     Ensures smart, real-time inventory ledger valuations.
+   - **No Native Dialogs Substitution:** Replaced native browser `alert()` and window deletion confirmations with elegant, state-driven custom `ConfirmModal` overlays and friendly `react-hot-toast` notifications.
+
+3. **Refactored Stocktake / Inventory Count (`InventoryCount.tsx`):**
+   - **No Native Dialogs Rules Integration:** Checked and fully replaced all standard browser confirmation dialogs (`window.confirm`) during session completion and cancellation step workflows.
+   - **State-Driven Overlays:** Introduced custom `ConfirmModal` components to handle warnings about uncounted inventory items and confirmation of cancelled sessions, assuring seamless client-only runtime validation.
+
+All changes successfully build on the React Vite and TypeScript pipeline, ensuring full visual and accounting system integration.

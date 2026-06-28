@@ -1,0 +1,19 @@
+/* Sunset Theme */
+html.sunset body, html.sunset {
+  background-color: #fef3c7 !important;
+  color: #78350f !important;
+}
+
+html.sunset .bg-white { background: linear-gradient(135deg, #ffffff 0%, #fffbeb 100%) !important; }
+html.sunset .bg-slate-50, html.sunset .bg-gray-50 { background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%) !important; }
+html.sunset .bg-slate-100, html.sunset .bg-gray-100 { background-color: #fde68a !important; }
+html.sunset .border-slate-100, html.sunset .border-gray-100, html.sunset .border-slate-200, html.sunset .border-gray-200 { border-color: #fde68a !important; }
+html.sunset .border-slate-300, html.sunset .border-gray-300 { border-color: #fcd34d !important; }
+
+html.sunset .text-slate-500, html.sunset .text-gray-500 { color: #d97706 !important; }
+html.sunset .text-slate-600, html.sunset .text-gray-600, html.sunset .text-slate-700, html.sunset .text-gray-700 { color: #b45309 !important; }
+html.sunset .text-slate-800, html.sunset .text-gray-800, html.sunset .text-slate-900, html.sunset .text-gray-900, html.sunset .text-black, html.sunset .text-indigo-900 { color: #78350f !important; }
+
+/* Dashboard Active Tabs Override */
+html.sunset .bg-indigo-50 { background-color: #fde68a !important; }
+html.sunset .text-indigo-700, html.sunset .text-indigo-600, html.sunset .text-indigo-500 { color: #b45309 !important; }

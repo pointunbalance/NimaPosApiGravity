@@ -1,0 +1,10 @@
+I have located and fixed the issue where selecting specific menus/tabs (such as target button 11 "السلوك والتربية" (Behavioral Tracking) or button 12 "المهام الإدارية" (Administrative Checklist)) did not show their respective data lists but instead showed a generic placeholder interface.
+
+### Root Cause
+In `/components/school/students/SchoolStudentModal.tsx`, there is a conditional display of the "هذا القسم قيد التطوير..." (This section is under development) placeholder banner for tabs that are not listed in the exclusion array. The checklist (`checklist`) and behavioral (`behavioral`) tabs were fully coded and functional, but they were missing from the tab exclusion list. Clicking them would overlay the "Under Development" placeholder on top of their actual forms.
+
+### Changes Made
+1. **Updated Tab Active Exclusions:**
+   - Modified `/components/school/students/SchoolStudentModal.tsx` to include `"behavioral"` and `"checklist"` inside the activeTab exclusion list.
+2. **Verified Build:**
+   - Compiled the application using the build command to ensure 100% success and no compilation errors.

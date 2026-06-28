@@ -1,0 +1,19 @@
+/* nature Theme */
+html.nature body, html.nature {
+  background-color: #dcfce7 !important;
+  color: #064e3b !important;
+}
+
+html.nature .bg-white { background: linear-gradient(135deg, #ffffff 0%, #ecfdf5 100%) !important; }
+html.nature .bg-slate-50, html.nature .bg-gray-50 { background: linear-gradient(135deg, #ecfdf5 0%, #dcfce7 100%) !important; }
+html.nature .bg-slate-100, html.nature .bg-gray-100 { background-color: #bbf7d0 !important; }
+html.nature .border-slate-100, html.nature .border-gray-100, html.nature .border-slate-200, html.nature .border-gray-200 { border-color: #bbf7d0 !important; }
+html.nature .border-slate-300, html.nature .border-gray-300 { border-color: #6ee7b7 !important; }
+
+html.nature .text-slate-500, html.nature .text-gray-500 { color: #059669 !important; }
+html.nature .text-slate-600, html.nature .text-gray-600, html.nature .text-slate-700, html.nature .text-gray-700 { color: #047857 !important; }
+html.nature .text-slate-800, html.nature .text-gray-800, html.nature .text-slate-900, html.nature .text-gray-900, html.nature .text-black, html.nature .text-indigo-900 { color: #064e3b !important; }
+
+/* Dashboard Active Tabs Override */
+html.nature .bg-indigo-50 { background-color: #bbf7d0 !important; }
+html.nature .text-indigo-700, html.nature .text-indigo-600, html.nature .text-indigo-500 { color: #047857 !important; }

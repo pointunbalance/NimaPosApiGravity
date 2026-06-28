@@ -1,0 +1,25 @@
+/* Orchid Theme - Purple/Pink blend */
+html.orchid body, html.orchid {
+  background-color: #fae8ff !important; /* fuchsia-100 */
+  color: #701a75 !important; /* fuchsia-900 */
+}
+
+/* Gradients for containers */
+html.orchid .bg-white { 
+  background: linear-gradient(135deg, #ffffff 0%, #fdf4ff 100%) !important; 
+}
+html.orchid .bg-slate-50, html.orchid .bg-gray-50 { 
+  background: linear-gradient(135deg, #fdf4ff 0%, #fae8ff 100%) !important; 
+}
+html.orchid .bg-slate-100, html.orchid .bg-gray-100 { background-color: #f5d0fe !important; /* fuchsia-200 */ }
+html.orchid .border-slate-100, html.orchid .border-gray-100, html.orchid .border-slate-200, html.orchid .border-gray-200 { border-color: #f5d0fe !important; }
+html.orchid .border-slate-300, html.orchid .border-gray-300 { border-color: #f0abfc !important; /* fuchsia-300 */ }
+
+html.orchid .text-slate-500, html.orchid .text-gray-500 { color: #d946ef !important; /* fuchsia-600 */ }
+html.orchid .text-slate-600, html.orchid .text-gray-600, html.orchid .text-slate-700, html.orchid .text-gray-700 { color: #a21caf !important; /* fuchsia-700 */ }
+html.orchid .text-slate-800, html.orchid .text-gray-800, html.orchid .text-slate-900, html.orchid .text-gray-900, html.orchid .text-black, html.orchid .text-indigo-900 { color: #701a75 !important; }
+
+/* Dashboard Active Tabs Override */
+html.orchid .bg-indigo-50 { background-color: #f5d0fe !important; }
+html.orchid .text-indigo-700, html.orchid .text-indigo-600, html.orchid .text-indigo-500 { color: #a21caf !important; }
+
