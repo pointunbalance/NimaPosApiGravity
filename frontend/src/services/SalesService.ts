@@ -1,5 +1,6 @@
 
 import { db } from '../db';
+import { debug } from '../utils/debug';
 import { AccountingEngine } from './AccountingEngine';
 import { Order, CartItem, User, AppSettings, ProductUnit, Promotion, JournalEntryLine } from '../types';
 import { logActivity } from '../utils/logger';
@@ -146,10 +147,10 @@ export class SalesService {
 
         // Transaction
         return await (db as any).transaction('rw', [db.orders, db.recipes, db.products, db.customers, db.inventory, db.batches, db.productSerials, db.logs, db.shifts, db.promotions, db.periodicMaintenanceSchedules, db.journalEntries, db.accounts, db.loyaltyTransactions, db.giftCards, db.auditLogs], async () => {
-            console.log("--- BEGIN ATOMIC TRANSACTION ---");
-            console.log("1. حفظ الفاتورة (Save Order)");
-            console.log("2. خصم المكونات من المخزن (Deduct Inventory)");
-            console.log("3. تسجيل حركة الصندوق (Register Cash Movement)");
+            debug("--- BEGIN ATOMIC TRANSACTION ---");
+            debug("1. حفظ الفاتورة (Save Order)");
+            debug("2. خصم المكونات من المخزن (Deduct Inventory)");
+            debug("3. تسجيل حركة الصندوق (Register Cash Movement)");
 
             try {
                 // Process Gift Card
@@ -596,7 +597,7 @@ export class SalesService {
             // 8. Log
             await logActivity('sale', `فاتورة بيع #${orderId}`, `قيمة: ${totals.total}`, totals.total, orderId as number, 'success');
 
-            console.log("--- COMMIT ATOMIC TRANSACTION ---");
+            debug("--- COMMIT ATOMIC TRANSACTION ---");
             return orderId;
             } catch (error) {
                 console.error("--- ROLLBACK ATOMIC TRANSACTION ---", error);
@@ -741,7 +742,7 @@ export class SalesService {
                 );
 
                 if (!hasActiveRequestForProduct) {
-                     console.log(`[Reorder System] 🔴 Threshold reached for ${product.name} (Stock: ${newStock}, Threshold: ${product.alertThreshold}). Automatically generating Purchase Request.`);
+                     debug(`[Reorder System] 🔴 Threshold reached for ${product.name} (Stock: ${newStock}, Threshold: ${product.alertThreshold}). Automatically generating Purchase Request.`);
                      
                      await db.purchaseRequests.add({
                          requestNumber: 'PR-AUTO-' + Date.now().toString().slice(-6),

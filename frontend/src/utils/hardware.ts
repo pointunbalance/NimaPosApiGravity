@@ -1,3 +1,5 @@
+import { debug } from './debug';
+
 export class HardwareService {
   private port1: any = null; // SerialPort
   private port2: any = null; // Secondary SerialPort
@@ -100,7 +102,7 @@ export class HardwareService {
   }
   async sendToPaymentTerminal(amount: number): Promise<boolean> {
     try {
-      console.log(`Sending amount ${amount} to payment terminal via local IP/Serial...`);
+      debug(`Sending amount ${amount} to payment terminal via local IP/Serial...`);
       // Simulating terminal processing delay
       await new Promise(resolve => setTimeout(resolve, 2000));
       return true; // Simulate approved
@@ -113,7 +115,7 @@ export class HardwareService {
   async readScale(): Promise<number> {
     // محاكاة قراءة الميزان
     try {
-        console.log('Reading from scale...');
+        debug('Reading from scale...');
         await new Promise(resolve => setTimeout(resolve, 800));
         const randomWeight = (Math.random() * 5 + 0.1).toFixed(3); // Random weight between 0.1 and 5.1 kg
         return Number(randomWeight);

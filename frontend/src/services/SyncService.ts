@@ -1,4 +1,5 @@
 import { db } from '../db';
+import { debug } from '../utils/debug';
 
 class OfflineSyncService {
     private isOnline: boolean = navigator.onLine;
@@ -51,7 +52,7 @@ class OfflineSyncService {
             if (pendingItems.length === 0) return;
 
             // Simulate network request to cloud server
-            console.log(`[Sync] Starting synchronization of ${pendingItems.length} items to cloud...`);
+            debug(`[Sync] Starting synchronization of ${pendingItems.length} items to cloud...`);
             
             // We simulate a cloud request delay
             await new Promise(resolve => setTimeout(resolve, 2000));
@@ -63,7 +64,7 @@ class OfflineSyncService {
                 await db.syncQueue.update(item.id!, { status: 'synced' });
             }
 
-            console.log(`[Sync] Successfully synchronized ${pendingItems.length} items.`);
+            debug(`[Sync] Successfully synchronized ${pendingItems.length} items.`);
             this.notifyListeners();
         } catch (error) {
             console.error('[Sync] Synchronization failed:', error);
@@ -99,7 +100,7 @@ class OfflineSyncService {
         // Simulates an event where the server pushes new data to the local DB (Bidirectional)
         if (!this.isOnline) return;
         
-        console.log(`[Sync] Received incoming cloud push for ${tableName}... merging data.`);
+        debug(`[Sync] Received incoming cloud push for ${tableName}... merging data.`);
         
         // Let's pretend it's a new appointment
         if (tableName === 'appointments') {

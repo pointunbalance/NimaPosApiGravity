@@ -17,7 +17,10 @@ class LicenseMiddleware(BaseHTTPMiddleware):
         
         # 1. Bypass check for activation, health, and static docs
         allowed_paths = [
-            f"{API_PREFIX}/system",
+            f"{API_PREFIX}/system/health",
+            f"{API_PREFIX}/system/version",
+            f"{API_PREFIX}/system/activation-status",
+            f"{API_PREFIX}/system/activate",
             "/docs",
             "/scalar",
             "/openapi.json",

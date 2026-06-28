@@ -1,6 +1,7 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../db';
+import { debug } from '../utils/debug';
 import { Category } from '../types';
 
 import CategoriesHeader from '../components/categories/CategoriesHeader';
@@ -114,7 +115,7 @@ const Categories: React.FC = () => {
         }
 
         if (duplicatesToDelete.length > 0 || productsToUpdate.length > 0) {
-          console.log(`[Deduplication] Merging ${duplicatesToDelete.length} duplicate categories...`);
+          debug(`[Deduplication] Merging ${duplicatesToDelete.length} duplicate categories...`);
           await db.transaction('rw', [db.categories, db.products], async () => {
             for (const item of productsToUpdate) {
               await db.products.update(item.productId, { category: item.newCategory });

@@ -5,6 +5,7 @@ import NotFound from "./pages/NotFound";
 import Login from "./pages/Login";
 import SetupWizard from "./pages/SetupWizard";
 import { getCurrentUser as getStoredUser, setCurrentUser as setStoredUser } from "./hooks/useCurrentUser";
+import { debug } from "./utils/debug";
 
 // Lazy Loaded Pages
 const Consignments = lazy(() => import("./pages/inventory/Consignments"));
@@ -655,7 +656,7 @@ const App: React.FC = () => {
       timeout = setTimeout(() => {
         localStorage.removeItem('nima_user');
         setCurrentUser(null);
-        console.log("User locked out due to inactivity");
+        debug("User locked out due to inactivity");
       }, 900000);
     };
 
@@ -702,7 +703,7 @@ const App: React.FC = () => {
           }
 
           if (shouldBackup) {
-            console.log("Starting Automatic Backup...");
+            debug("Starting Automatic Backup...");
             const blob = await exportFullDatabase();
             downloadBackup(
               blob,

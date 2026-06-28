@@ -34,7 +34,7 @@ class OnlineOrder(BaseModel):
 
 # --- Channel Endpoints ---
 
-@router.get("/channels", response_model=List[OnlineChannel])
+@router.get("/channels", response_model=List[OnlineChannel], dependencies=[Depends(require_role(["owner", "admin"]))])
 def list_channels():
     conn = get_connection()
     cursor = conn.cursor()
@@ -42,7 +42,7 @@ def list_channels():
     cols = [d[0] for d in cursor.description]
     return [dict(zip(cols, row)) for row in cursor.fetchall()]
 
-@router.post("/channels", response_model=OnlineChannel)
+@router.post("/channels", response_model=OnlineChannel, dependencies=[Depends(require_role(["owner", "admin"]))])
 def create_channel(channel: OnlineChannel):
     conn = get_connection()
     cursor = conn.cursor()
@@ -60,7 +60,7 @@ def create_channel(channel: OnlineChannel):
 
 # --- Order Endpoints ---
 
-@router.get("/orders", response_model=List[OnlineOrder])
+@router.get("/orders", response_model=List[OnlineOrder], dependencies=[Depends(require_role(["owner", "admin"]))])
 def list_orders(channel_id: Optional[int] = None, status: Optional[str] = None):
     conn = get_connection()
     cursor = conn.cursor()
@@ -106,7 +106,7 @@ async def handle_webhook(source: str, request: Request, dedupe_key: Optional[str
     payload_str = payload.decode("utf-8")
     
     if not dedupe_key:
-        dedupe_key = hashlib.md5(payload).hexdigest()
+        dedupe_key = hashlib.sha256(payload).hexdigest()
 
     try:
         cursor.execute("""

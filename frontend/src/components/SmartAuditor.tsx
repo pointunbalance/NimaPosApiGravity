@@ -1,6 +1,7 @@
 
 import React, { useEffect } from 'react';
 import { db } from '../db';
+import { debug } from '../utils/debug';
 import { useToast } from '../context/ToastContext';
 import { logActivity } from '../utils/logger';
 
@@ -13,7 +14,7 @@ const SmartAuditor: React.FC = () => {
 
   useEffect(() => {
     const runAudit = async () => {
-      console.log('🕵️ Smart Auditor: Starting background check...');
+      debug('🕵️ Smart Auditor: Starting background check...');
       
       try {
         await auditRecentOrders();

@@ -1,4 +1,5 @@
 import Dexie, { Table } from "dexie";
+import { debug } from "./utils/debug";
 import {
   Product,
   Printer,
@@ -1304,9 +1305,9 @@ const populateData = async (
 export const seedLargeDataSet = async (
   onProgress?: (label: string, percent: number) => void,
 ) => {
-  console.log("Forcing Seed Data...");
+  debug("Forcing Seed Data...");
   await populateData(onProgress);
-  console.log("Forced Seed Complete.");
+  debug("Forced Seed Complete.");
 };
 
 export const seedExtraData = async () => {

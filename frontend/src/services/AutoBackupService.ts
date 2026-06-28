@@ -1,4 +1,5 @@
 import { db } from '../db';
+import { debug } from '../utils/debug';
 
 /**
  * AutoBackupService
@@ -13,7 +14,7 @@ export class AutoBackupService {
             clearInterval(this.backupInterval);
         }
         
-        console.log('[Auto-Backup] Service initialized and running silently.');
+        debug('[Auto-Backup] Service initialized and running silently.');
         
         // Schedule next backup
         this.backupInterval = window.setInterval(() => {
@@ -28,7 +29,7 @@ export class AutoBackupService {
         if (this.backupInterval) {
             clearInterval(this.backupInterval);
         }
-        console.log('[Auto-Backup] Service stopped.');
+        debug('[Auto-Backup] Service stopped.');
     }
     
     /**
@@ -36,7 +37,7 @@ export class AutoBackupService {
      */
     public async performBackup(reason: string = 'Manual Request') {
         try {
-            console.log(`[Auto-Backup] Starting dump & upload... Reason: ${reason}`);
+            debug(`[Auto-Backup] Starting dump & upload... Reason: ${reason}`);
             
             // In a real application, we would use dexie-export-import:
             // const blob = await db.export();
@@ -45,7 +46,7 @@ export class AutoBackupService {
             // Simulate network latency for upload
             await new Promise(res => setTimeout(res, 1500));
             
-            console.log(`[Auto-Backup] ✅ Cloud Backup completed successfully.`);
+            debug(`[Auto-Backup] ✅ Cloud Backup completed successfully.`);
             
             // Store timestamp of the successful backup
             localStorage.setItem('last_db_backup', new Date().toISOString());

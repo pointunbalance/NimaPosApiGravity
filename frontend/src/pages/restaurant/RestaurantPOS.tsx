@@ -11,6 +11,7 @@ import {
   RotateCcw, Unlock, History, ScanBarcode, Keyboard, PauseCircle, Monitor, Users
 } from 'lucide-react';
 import { SalesService, CalculationEngine } from '../../services/SalesService';
+import { debug } from '../../utils/debug';
 import { useToast } from '../../context/ToastContext';
 import { logActivity } from '../../utils/logger';
 import { POSCategoryGrid } from '../../components/pos/POSCategoryGrid';
@@ -797,7 +798,7 @@ const RestaurantPOS: React.FC = () => {
           const orderData = buildOrderData('draft', 'cash', 0, 'pending');
           
           await db.transaction('rw', [db.orders, db.products, db.stockAdjustments], async () => {
-              console.log("--- BEGIN KITCHEN TRANSACTION ---");
+              debug("--- BEGIN KITCHEN TRANSACTION ---");
               let savedOrderId = existingOrderId;
               let isUpdate = false;
               
@@ -821,7 +822,7 @@ const RestaurantPOS: React.FC = () => {
                       }
                   }
               }
-              console.log("--- COMMIT KITCHEN TRANSACTION ---");
+              debug("--- COMMIT KITCHEN TRANSACTION ---");
           });
           
           success(existingOrderId ? "تم تحديث الطلب وإرساله للمطبخ" : "تم إرسال الطلب الجديد للمطبخ");

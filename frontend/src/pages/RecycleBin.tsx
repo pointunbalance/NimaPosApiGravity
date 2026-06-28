@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../db';
+import { debug } from '../utils/debug';
 import { Trash2, RefreshCcw, Search, AlertTriangle, ShieldAlert } from 'lucide-react';
 import { useToast } from '../context/ToastContext';
 import ConfirmModal from '../components/ui/ConfirmModal';
@@ -19,7 +20,7 @@ export const RecycleBin = () => {
              if (itemsToPurge.length > 0) {
                  const ids = itemsToPurge.map(i => i.id!);
                  await db.recycleBin.bulkDelete(ids);
-                 console.log(`Auto-purged ${itemsToPurge.length} related items from Recycle Bin.`);
+                 debug(`Auto-purged ${itemsToPurge.length} related items from Recycle Bin.`);
              }
         };
         autoPurge();

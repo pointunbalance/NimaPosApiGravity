@@ -28,7 +28,8 @@ def update_currency(c_id: int, payload: CurrencyUpdate, user: dict = Depends(req
     currency_repo.update(c_id, payload.model_dump(exclude_unset=True))
     return ApiResponse(ok=True, data=currency_repo.get_by_id(c_id))
 
-@router.get("/currencies/convert", response_model=ApiResponse, summary="Utility for currency conversion")
+@router.get("/currencies/convert", response_model=ApiResponse, summary="Utility for currency conversion",
+           dependencies=[Depends(require_role(["owner", "admin", "manager"]))])
 def convert_currency(amount: float = Query(...), from_id: int = Query(...), to_id: int = Query(...)):
     """Calculates conversion amount based on current rates."""
     result = currency_repo.convert(amount, from_id, to_id)

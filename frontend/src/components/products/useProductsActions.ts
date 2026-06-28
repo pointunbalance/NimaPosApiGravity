@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { db } from '../../db';
 import { Product } from '../../types';
 import { exportToExcel, importFromExcel } from '../../utils/excel';
+import JsBarcode from 'jsbarcode';
 
 export const useProductsActions = (
   getFilteredProducts: (term?: string, cat?: string, stock?: 'all' | 'low' | 'out') => Promise<Product[]>,
@@ -273,6 +274,31 @@ export const useProductsActions = (
         return;
       }
 
+      const barcodeSvgs: string[] = [];
+      for (const p of productsWithBarcode) {
+        const svgEl = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        try {
+          JsBarcode(svgEl, p.barcode, {
+            format: "CODE128",
+            width: 1.5,
+            height: 40,
+            displayValue: true,
+            fontSize: 12
+          });
+          barcodeSvgs.push(svgEl.outerHTML);
+        } catch {
+          barcodeSvgs.push('');
+        }
+      }
+
+      const labels = productsWithBarcode.map((p, i) => `
+        <div class="label">
+          <div class="name">${p.name}</div>
+          ${barcodeSvgs[i]}
+          <div class="price">${p.price} ${currencyCode}</div>
+        </div>
+      `).join('');
+
       const printWindow = window.open('', '_blank');
       if (!printWindow) {
         error('يرجى السماح بالنوافذ المنبثقة لطباعة الباركود.');
@@ -297,43 +323,8 @@ export const useProductsActions = (
             </style>
           </head>
           <body>
-            <div id="barcode-grid" class="grid"></div>
-            <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
-            <script>
-              const products = \${JSON.stringify(productsWithBarcode.map(p => ({ name: p.name, barcode: p.barcode, price: p.price })))};
-              const grid = document.getElementById('barcode-grid');
-              products.forEach(p => {
-                const label = document.createElement('div');
-                label.className = 'label';
-                const nameDiv = document.createElement('div');
-                nameDiv.className = 'name';
-                nameDiv.innerText = p.name;
-                label.appendChild(nameDiv);
-                
-                const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-                label.appendChild(svg);
-                
-                const priceDiv = document.createElement('div');
-                priceDiv.className = 'price';
-                priceDiv.innerText = p.price + ' ' + \${JSON.stringify(currencyCode)};
-                label.appendChild(priceDiv);
-                
-                grid.appendChild(label);
-                
-                try {
-                  JsBarcode(svg, p.barcode, {
-                    format: "CODE128",
-                    width: 1.5,
-                    height: 40,
-                    displayValue: true,
-                    fontSize: 12
-                  });
-                } catch(e) {
-                  console.error(e);
-                }
-              });
-              setTimeout(() => { window.print(); window.close(); }, 500);
-            </script>
+            <div class="grid">${labels}</div>
+            <script>window.onload = () => { window.print(); window.close(); }<\/script>
           </body>
         </html>
       `);

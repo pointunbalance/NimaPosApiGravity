@@ -1,5 +1,6 @@
 import { appEventBus } from '../lib/eventBus';
 import { db } from '../db';
+import { debug } from '../utils/debug';
 import { Order, AppSettings } from '../types';
 
 /**
@@ -9,7 +10,7 @@ import { Order, AppSettings } from '../types';
  */
 appEventBus.subscribe('ORDER_SAVED', async ({ order, isUpdate }: { order: Order; isUpdate: boolean }) => {
     try {
-        console.log(`[Inventory Service] Order saved, updating stock for order #${order.referenceNumber || order.id}`);
+        debug(`[Inventory Service] Order saved, updating stock for order #${order.referenceNumber || order.id}`);
         // Here we could implement the full indexing logic if needed.
         // As a demonstration of the pattern, we ensure products exist and deduct.
         // Note: For real robust tracking, the actual long SQL-like transaction in SalesService is preferred, 
@@ -48,10 +49,10 @@ appEventBus.subscribe('ORDER_SAVED', async ({ order, isUpdate }: { order: Order;
  */
 appEventBus.subscribe('ORDER_SAVED', async ({ order, settings }: { order: Order, settings?: AppSettings }) => {
     if (settings?.autoPrint) {
-        console.log(`[Printer Service] Sending order #${order.referenceNumber || order.id} to Kitchen Printer`);
+        debug(`[Printer Service] Sending order #${order.referenceNumber || order.id} to Kitchen Printer`);
         // We simulate printer instruction here
         if (order.fulfillmentStatus === 'pending') {
-            console.log(`[Printer] 🖨️ Printing Kitchen Ticket...`);
+            debug(`[Printer] 🖨️ Printing Kitchen Ticket...`);
             // Custom printer logic here
         }
     }
@@ -65,7 +66,7 @@ appEventBus.subscribe('ORDER_SAVED', async ({ order, settings }: { order: Order,
  */
 appEventBus.subscribe('ORDER_SAVED', async ({ order }: { order: Order }) => {
     if (order.fulfillmentStatus === 'pending') {
-        console.log(`[KDS Service] System alert: New order #${order.referenceNumber || order.id} for the Kitchen!`);
+        debug(`[KDS Service] System alert: New order #${order.referenceNumber || order.id} for the Kitchen!`);
         // e.g. send to WebSocket, or show custom Toast
     }
 });

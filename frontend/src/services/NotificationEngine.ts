@@ -1,3 +1,5 @@
+import { debug } from '../utils/debug';
+
 /**
  * Notification Engine
  * Handles "sending" SMS to customers and WhatsApp reports to owners.
@@ -12,12 +14,12 @@ export class NotificationEngine {
     public async sendCustomerSMS(phoneNumber: string, message: string) {
         if (!phoneNumber) return;
         
-        console.log(`[Notification Engine] 📱 Sending SMS to ${phoneNumber} ...`);
+        debug(`[Notification Engine] 📱 Sending SMS to ${phoneNumber} ...`);
         
         // Simulate API call to standard SMS Gateway (Unifonic, Twilio, etc)
         await new Promise(res => setTimeout(res, 500));
         
-        console.log(`[Notification Engine] ✅ SMS Delivered to ${phoneNumber}:\n"${message}"`);
+        debug(`[Notification Engine] ✅ SMS Delivered to ${phoneNumber}:\n"${message}"`);
     }
     
     /**
@@ -26,14 +28,14 @@ export class NotificationEngine {
     public async sendOwnerWhatsAppReport(ownerPhone: string, reportData: { totalSales: number, orderCount: number, date: string }) {
         if (!ownerPhone) return;
         
-        console.log(`[Notification Engine] 🟢 Sending WhatsApp Daily Report to Owner (${ownerPhone}) ...`);
+        debug(`[Notification Engine] 🟢 Sending WhatsApp Daily Report to Owner (${ownerPhone}) ...`);
         
         const formattedReport = `*Daily Sales Report - ${reportData.date}*\nTotal Sales: ${reportData.totalSales} SAR\nTotal Orders: ${reportData.orderCount}`;
         
         // Simulate API call to WhatsApp Business API
         await new Promise(res => setTimeout(res, 1000));
         
-        console.log(`[Notification Engine] ✅ WhatsApp Report Delivered. Content:\n${formattedReport}`);
+        debug(`[Notification Engine] ✅ WhatsApp Report Delivered. Content:\n${formattedReport}`);
     }
 }
 
