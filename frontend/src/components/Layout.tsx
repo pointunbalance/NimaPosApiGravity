@@ -13,6 +13,7 @@ import { LicenseContext } from './ActivationGuard';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SECTION_TO_BIT } from './layout/layoutConstants';
 import { LogoutConfirmModal } from './layout/LogoutConfirmModal';
+import { useCurrentUser } from '../hooks/useCurrentUser';
 
 interface LayoutProps {
   onLogout?: () => void;
@@ -30,8 +31,7 @@ const Layout: React.FC<LayoutProps> = ({ onLogout }) => {
   const { success, error, showToast } = useToast();
   const { featuresMask } = useContext(LicenseContext);
   
-  const userString = localStorage.getItem('nima_user');
-  const sessionUser: User = userString ? JSON.parse(userString) : {};
+  const sessionUser = useCurrentUser();
   const dbUser = useLiveQuery(() => sessionUser?.id ? db.users.get(sessionUser.id) : undefined);
   const user = dbUser || sessionUser;
 

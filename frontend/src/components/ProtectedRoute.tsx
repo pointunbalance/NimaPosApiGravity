@@ -3,10 +3,10 @@ import { Navigate, useLocation } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../db';
 import { Loader2 } from 'lucide-react';
+import { useCurrentUser, clearCurrentUser } from '../hooks/useCurrentUser';
 
 export default function ProtectedRoute({ children }: { children: React.ReactNode }) {
-  const userString = localStorage.getItem('nima_user');
-  const sessionUser = userString ? JSON.parse(userString) : null;
+  const sessionUser = useCurrentUser();
   const location = useLocation();
   const roles = useLiveQuery(() => db.roles.toArray());
   const dbUser = useLiveQuery(() => sessionUser?.id ? db.users.get(sessionUser.id) : undefined);
@@ -24,9 +24,9 @@ export default function ProtectedRoute({ children }: { children: React.ReactNode
       );
   }
 
-  // Logged in user not found in DB, deactivated, or PIN mismatch (tampring detection)
+  // Logged in user not found in DB, deactivated, or PIN mismatch (tampering detection)
   if (!dbUser || !dbUser.isActive || sessionUser.pin !== dbUser.pin) {
-      localStorage.removeItem('nima_user');
+      clearCurrentUser();
       return <Navigate to="/" replace />;
   }
 

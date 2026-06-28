@@ -4,6 +4,7 @@ import Layout from "./components/Layout";
 import NotFound from "./pages/NotFound";
 import Login from "./pages/Login";
 import SetupWizard from "./pages/SetupWizard";
+import { getCurrentUser as getStoredUser, setCurrentUser as setStoredUser } from "./hooks/useCurrentUser";
 
 // Lazy Loaded Pages
 const Consignments = lazy(() => import("./pages/inventory/Consignments"));
@@ -737,13 +738,9 @@ const App: React.FC = () => {
         const count = await db.settings.count();
         setIsConfigured(count > 0);
 
-        const storedUser = localStorage.getItem("nima_user");
+        const storedUser = getStoredUser();
         if (storedUser) {
-          try {
-            setCurrentUser(JSON.parse(storedUser));
-          } catch (e) {
-            localStorage.removeItem("nima_user");
-          }
+          setCurrentUser(storedUser);
         }
       } catch (e) {
         console.error("Config check failed", e);
@@ -755,14 +752,9 @@ const App: React.FC = () => {
   }, []);
 
   const handleSetupComplete = () => {
-    const storedUser = localStorage.getItem("nima_user");
+    const storedUser = getStoredUser();
     if (storedUser) {
-      try {
-        const user = JSON.parse(storedUser);
-        setCurrentUser(user);
-      } catch (e) {
-        console.error("Failed to parse user from local storage", e);
-      }
+      setCurrentUser(storedUser);
     }
     setIsConfigured(true);
   };
