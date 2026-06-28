@@ -150,18 +150,6 @@ def create_invoice(data: dict, conn=None) -> int:
         if must_commit: conn.rollback()
         raise e
 
-        if must_commit:
-            conn.commit()
-            
-        # Register the latest transaction time to enforce anti-tampering monotonic clock
-        TimeKeeper.commit_time(now_str())
-        
-        return invoice_id
-    except Exception as e:
-        if must_commit:
-            conn.rollback()
-        raise e
-
 
 def create_invoice_items(invoice_id: int, items: list, user_id: int = None, conn=None):
     if conn is None:

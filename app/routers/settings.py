@@ -1,4 +1,5 @@
 """Settings router."""
+import logging
 from fastapi import APIRouter, Depends, HTTPException
 
 from app.config import API_VERSION, BUILD_DATE, JWT_EXPIRY_HOURS
@@ -7,6 +8,8 @@ from app.middleware.auth_middleware import require_role, get_current_user
 from app.models.common import ApiResponse
 from app.models.settings import SettingUpdate
 from app.repositories import settings_repo
+
+logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/settings", tags=["System & Settings"])
 
@@ -46,11 +49,11 @@ def get_settings_health(user: dict = Depends(get_current_user)):
             },
         )
     except Exception as exc:
+        logger.error("Settings health check failed: %s", str(exc))
         return ApiResponse(
             ok=False,
             error={
                 "message": "Settings subsystem unhealthy",
-                "detail": str(exc),
             },
         )
 

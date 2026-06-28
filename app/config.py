@@ -26,10 +26,10 @@ JWT_ALGORITHM = "HS256"
 JWT_EXPIRY_HOURS = 12
 
 # --- API ---
-API_VERSION = "2.29.0"
+API_VERSION = "2.32.0"
 API_PREFIX = "/api/v1"
 APP_NAME = "NimaPOS API"
-BUILD_DATE = "2026-03-01"
+BUILD_DATE = "2026-06-29"
 
 # --- Business Defaults ---
 DEFAULT_BRANCH_ID = 1
@@ -37,6 +37,15 @@ LOW_STOCK_THRESHOLD = 10
 TOP_PRODUCTS_LIMIT = 20
 PAGINATION_DEFAULT_LIMIT = 50
 PAGINATION_MAX_LIMIT = 200
+
+# --- CORS ---
+CORS_ORIGINS = os.environ.get("CORS_ORIGINS", "").split(",") if os.environ.get("CORS_ORIGINS") else [
+    "http://localhost:3000",
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+    "http://localhost:4173",
+    "http://127.0.0.1:4173",
+]
 
 # --- Ensure dirs exist ---
 os.makedirs(DATA_DIR, exist_ok=True)

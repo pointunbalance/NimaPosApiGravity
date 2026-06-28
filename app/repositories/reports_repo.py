@@ -249,7 +249,7 @@ def get_inventory_aging():
     for row in rows:
         try:
             rcv_date = datetime.strptime(row["last_receive_date"], "%Y-%m-%d").date()
-        except:
+        except (ValueError, TypeError):
             rcv_date = today
             
         days = (today - rcv_date).days

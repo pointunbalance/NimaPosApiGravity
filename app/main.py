@@ -8,7 +8,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, HTMLResponse
 from fastapi.openapi.utils import get_openapi
 
-from app.config import API_PREFIX, APP_NAME, API_VERSION, BUILD_DATE
+from app.config import API_PREFIX, APP_NAME, API_VERSION, BUILD_DATE, CORS_ORIGINS
 from app.database.manager import initialize_db
 from app.database.connection import get_connection, close_connection
 from app.utils.ui_templates import get_swagger_ui_html, get_scalar_ui_html
@@ -38,7 +38,6 @@ logger = logging.getLogger(__name__)
 
 from app.utils.time_keeper import TimeKeeper
 from app.database.backup_service import AutoBackupService
-from app.database.connection import get_connection
 
 @asynccontextmanager
 async def lifespan(application: FastAPI):
@@ -81,22 +80,19 @@ def create_app() -> FastAPI:
         """Modern Scalar documentation with advanced search."""
         return HTMLResponse(get_scalar_ui_html(application.title, "/openapi.json"))
 
-    # --- Middleware ---
-    application.add_middleware(LicenseMiddleware)
-    application.add_middleware(RateLimitMiddleware, limit=30, window=60)
+    # --- Middleware (executed in reverse order: last added = outermost) ---
+    # CORS first (innermost, handles preflight)
     application.add_middleware(
         CORSMiddleware,
-        allow_origins=[
-            "http://localhost:3000",
-            "http://localhost:5173",
-            "http://127.0.0.1:5173",
-            "http://localhost:4173",
-            "http://127.0.0.1:4173",
-        ],
+        allow_origins=CORS_ORIGINS,
         allow_credentials=True,
-        allow_methods=["*"],
-        allow_headers=["*"],
+        allow_methods=["GET", "POST", "PUT", "DELETE", "PATCH"],
+        allow_headers=["Authorization", "Content-Type"],
     )
+    # Rate limiting second
+    application.add_middleware(RateLimitMiddleware, limit=30, window=60)
+    # License check outermost - reject unlicensed before any other processing
+    application.add_middleware(LicenseMiddleware)
 
     @application.exception_handler(Exception)
     async def global_handler(request: Request, exc: Exception):
@@ -127,9 +123,8 @@ def create_app() -> FastAPI:
             conn.execute("SELECT 1")
             return {"ok": True, "data": {"status": "healthy", "database": "connected"}}
         except Exception as e:
-            import logging
-            logging.getLogger(__name__).error(f"Health check failed: {str(e)}")
-            return {"ok": False, "error": {"message": "Service unhealthy"}}
+            logger.error("Health check failed: %s", str(e))
+            return JSONResponse(status_code=503, content={"ok": False, "error": {"message": "Service unhealthy"}})
 
     @application.get(f"{API_PREFIX}/system/version", tags=["System & Settings"], summary="API version")
     def version():

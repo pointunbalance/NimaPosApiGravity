@@ -25,7 +25,7 @@ def create_backup(user: dict = Depends(require_role(["owner"]))):
         logger.error(f"Backup creation failed: {str(e)}")
         raise HTTPException(status_code=500, detail="Backup creation failed")
     size = os.path.getsize(backup_path)
-    return ApiResponse(ok=True, data={"filename": backup_name, "size_bytes": size, "path": backup_path})
+    return ApiResponse(ok=True, data={"filename": backup_name, "size_bytes": size})
 
 
 @router.get("/list", response_model=ApiResponse, summary="List backups")
