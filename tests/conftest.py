@@ -25,9 +25,10 @@ def test_setup(tmp_path, monkeypatch):
     # 5. Flush connection to ensure test uses the one pointing to db_path
     connection.close_connection()
     
-    # 6. Reset rate limiter store between tests
-    from app.middleware.rate_limit_middleware import _rate_limit_store
-    _rate_limit_store.clear()
+    # 6. Reset rate limiter stores between tests
+    from app.middleware.rate_limit_middleware import _sensitive_store, _global_store
+    _sensitive_store.clear()
+    _global_store.clear()
     
     yield db_path
     

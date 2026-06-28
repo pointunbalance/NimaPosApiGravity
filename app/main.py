@@ -1,6 +1,5 @@
 """NimaPOS REST API — FastAPI application factory."""
 import logging
-import re
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, Request

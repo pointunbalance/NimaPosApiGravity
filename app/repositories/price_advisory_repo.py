@@ -76,7 +76,7 @@ def get_optimization_suggestions():
                     target_margin_pct += 5.0
                 elif days_stagnant < 7:
                     target_margin_pct -= 2.0
-            except:
+            except (ValueError, TypeError):
                 target_margin_pct += 3.0
         else:
             target_margin_pct += 3.0 

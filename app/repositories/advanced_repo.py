@@ -372,7 +372,7 @@ def list_bookings(camera_id: int = None, date: str = None, status: str = None, o
     import json
     for item in items:
         try: item["assigned_team"] = json.loads(item.get("assigned_team", "[]"))
-        except: item["assigned_team"] = []
+        except (ValueError, TypeError, json.JSONDecodeError): item["assigned_team"] = []
     return items, total
 
 def update_booking(b_id: int, data: dict):

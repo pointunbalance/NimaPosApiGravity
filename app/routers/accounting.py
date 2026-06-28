@@ -193,7 +193,7 @@ def close_fy(fy_id: int, user: dict = Depends(require_role(["owner"]))):
     return ApiResponse(ok=True, data={"message": "Fiscal year closed"})
 
 @router.post("/fiscal-closing", response_model=ApiResponse, summary="Run Period-End Financial Closing")
-def fiscal_closing(date_to: str = Query(...), user: dict = Depends(get_current_user)):
+def fiscal_closing(date_to: str = Query(...), user: dict = Depends(require_role(["owner"]))):
     """Automated zeroing of revenue/expense accounts and transfer to equity."""
     result = accounting_repo.run_period_end_closing(date_to, user["id"])
     return ApiResponse(ok=True, data=result)
