@@ -28,13 +28,6 @@
     "noEmit": true
   },
   "exclude": [
-    "components/school/academicyear/**",
-    "components/school/behavior/**",
-    "components/school/discounts/**",
-    "components/school/grades/**",
-    "components/school/pickup/**",
-    "components/school/transport/**",
-    "components/school/withdrawals/**",
     "node_modules",
     "dist"
   ]

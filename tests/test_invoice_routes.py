@@ -1,4 +1,5 @@
 import uuid
+from datetime import datetime
 from pathlib import Path
 
 import pytest
@@ -222,6 +223,7 @@ def test_reports_sales_by_category_and_product_ledger_return_live_data(client, d
             "category": "Beverages",
         }
     )
+    today = datetime.now().strftime("%Y-%m-%d")
     invoice_id = invoice_repo.create_invoice(
         {
             "subtotal": 40,
@@ -251,16 +253,21 @@ def test_reports_sales_by_category_and_product_ledger_return_live_data(client, d
     )
     db_conn.execute(
         "UPDATE invoices SET created_at = ? WHERE id = ?",
-        ("2026-04-13 11:00:00", invoice_id),
+        (f"{today} 11:00:00", invoice_id),
+    )
+    db_conn.execute(
+        """INSERT INTO stock_movements (created_at, product_id, movement_type, qty_delta, reference_type, reference_id, notes)
+           VALUES (?, ?, 'OUT', -1, 'invoice', ?, 'Sale')""",
+        (f"{today} 11:00:00", product_id, invoice_id),
     )
     db_conn.commit()
 
     category_response = client.get(
-        "/api/v1/reports/sales-by-category?date_from=2026-04-13&date_to=2026-04-13",
+        f"/api/v1/reports/sales-by-category?date_from={today}&date_to={today}",
         headers=login_owner(client),
     )
     ledger_response = client.get(
-        f"/api/v1/reports/product-ledger/{product_id}?date_from=2026-04-13&date_to=2026-04-13",
+        f"/api/v1/reports/product-ledger/{product_id}?date_from={today}&date_to={today}",
         headers=login_owner(client),
     )
 
@@ -411,6 +418,7 @@ def test_backup_endpoints_create_and_list_backups(client, monkeypatch, tmp_path)
 
 
 def test_dashboard_kpis_and_branch_kpis_return_live_counts(client, db_conn):
+    today = datetime.now().strftime("%Y-%m-%d")
     invoice_id = invoice_repo.create_invoice(
         {
             "subtotal": 120,
@@ -426,7 +434,6 @@ def test_dashboard_kpis_and_branch_kpis_return_live_counts(client, db_conn):
             "branch_id": 1,
         }
     )
-    today = "2026-04-13"
     db_conn.execute(
         "UPDATE invoices SET created_at = ? WHERE id = ?",
         (f"{today} 09:00:00", invoice_id),
