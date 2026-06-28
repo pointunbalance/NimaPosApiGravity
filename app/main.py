@@ -5,7 +5,6 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, HTMLResponse
-from fastapi.openapi.utils import get_openapi
 
 from app.config import API_PREFIX, APP_NAME, API_VERSION, BUILD_DATE, CORS_ORIGINS
 from app.database.manager import initialize_db
