@@ -1093,10 +1093,6 @@ const App: React.FC = () => {
                         <Route path="capital" element={<Capital />} />
 
                         {/* Legal & Law Firm */}
-                        <Route
-                          path="legal/contracts"
-                          element={<ContractManagement />}
-                        />
                         <Route path="law-firm" element={<LawFirm />} />
                         <Route
                           path="law-firm/clients-opponents"
@@ -1369,7 +1365,6 @@ const App: React.FC = () => {
                         <Route path="school/discounts" element={<SchoolDiscounts />} />
                         <Route path="school/withdrawals" element={<SchoolWithdrawals />} />
                         <Route path="school/secure-pickup" element={<SchoolSecurePickup />} />
-                        <Route path="school/behavior" element={<SchoolBehavior />} />
                         <Route path="school/employees" element={<SchoolStaff />} />
                         <Route path="school/staff-attendance" element={<Attendance department="school" title="حضور طاقم المدرسة" subtitle="تتبع دوام المعلمين والموظفين" />} />
                         <Route path="school/alumni" element={<SchoolAlumni />} />

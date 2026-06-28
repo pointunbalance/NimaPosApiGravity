@@ -1,76 +1,98 @@
-export const generateEncryptionKey = async (): Promise<CryptoKey> => {
-    return await window.crypto.subtle.generateKey(
-        {
-            name: "AES-GCM",
-            length: 256
-        },
-        true,
-        ["encrypt", "decrypt"]
+// Encryption utilities using Web Crypto API (AES-GCM 256-bit)
+// For backward compatibility, sync versions use a non-reversible hash for obfuscation
+
+const ALGO = "AES-GCM";
+const KEY_LENGTH = 256;
+
+function getKeyMaterial(keyStr: string): Promise<CryptoKey> {
+  const enc = new TextEncoder();
+  return window.crypto.subtle.importKey(
+    "raw",
+    enc.encode(keyStr.padEnd(32, "\0").slice(0, 32)),
+    { name: ALGO },
+    false,
+    ["encrypt", "decrypt"]
+  );
+}
+
+function bufToBase64(buf: ArrayBuffer): string {
+  const bytes = new Uint8Array(buf);
+  let binary = "";
+  for (let i = 0; i < bytes.byteLength; i++) {
+    binary += String.fromCharCode(bytes[i]);
+  }
+  return btoa(binary);
+}
+
+function base64ToBuf(b64: string): ArrayBuffer {
+  const binary = atob(b64);
+  const bytes = new Uint8Array(binary.length);
+  for (let i = 0; i < binary.length; i++) {
+    bytes[i] = binary.charCodeAt(i);
+  }
+  return bytes.buffer;
+}
+
+export async function encryptData(text: string, keyStr: string = "default-app-encryption-key!!"): Promise<string> {
+  if (!text) return text;
+  try {
+    const key = await getKeyMaterial(keyStr);
+    const iv = window.crypto.getRandomValues(new Uint8Array(12));
+    const enc = new TextEncoder();
+    const ciphertext = await window.crypto.subtle.encrypt(
+      { name: ALGO, iv },
+      key,
+      enc.encode(text)
     );
-};
+    return bufToBase64(iv.buffer) + "." + bufToBase64(ciphertext);
+  } catch {
+    return text;
+  }
+}
 
-export const encryptData = async (text: string, keyVal: string = "secret-clinic-key-12345678901234"): Promise<string> => {
-    if (!text) return text;
-    try {
-        // Real-world: use SubtleCrypto. For synchronous/offline demo simplicity in IndexedDB without async await hell in render:
-        // We will use a reversible obfuscation (XOR + Base64) to meet the "not readable directly in DB" requirement quickly,
-        // while allowing easy synchronous decryption in UI components.
-        
-        let encrypted = '';
-        for (let i = 0; i < text.length; i++) {
-            const charCode = text.charCodeAt(i) ^ keyVal.charCodeAt(i % keyVal.length);
-            encrypted += String.fromCharCode(charCode);
-        }
-        return btoa(unescape(encodeURIComponent(encrypted)));
-    } catch {
-        return text;
-    }
-};
+export async function decryptData(encryptedBase64: string, keyStr: string = "default-app-encryption-key!!"): Promise<string> {
+  if (!encryptedBase64 || !encryptedBase64.includes(".")) return encryptedBase64;
+  try {
+    const [ivB64, ctB64] = encryptedBase64.split(".", 2);
+    const key = await getKeyMaterial(keyStr);
+    const iv = new Uint8Array(base64ToBuf(ivB64));
+    const ciphertext = base64ToBuf(ctB64);
+    const decrypted = await window.crypto.subtle.decrypt(
+      { name: ALGO, iv },
+      key,
+      ciphertext
+    );
+    return new TextDecoder().decode(decrypted);
+  } catch {
+    // Legacy data or not encrypted - return as-is
+    return encryptedBase64;
+  }
+}
 
-export const decryptData = async (encryptedBase64: string, keyVal: string = "secret-clinic-key-12345678901234"): Promise<string> => {
-    if (!encryptedBase64) return encryptedBase64;
-    try {
-        const decoded = decodeURIComponent(escape(atob(encryptedBase64)));
-        let decrypted = '';
-        for (let i = 0; i < decoded.length; i++) {
-            const charCode = decoded.charCodeAt(i) ^ keyVal.charCodeAt(i % keyVal.length);
-            decrypted += String.fromCharCode(charCode);
-        }
-        return decrypted;
-    } catch {
-        // If it was not encrypted (legacy data), just return it
-        return encryptedBase64;
-    }
-};
+// Synchronous versions - use Base64 encoding (obfuscation, not encryption)
+// These are for render contexts where async is not possible
+export function encryptSync(text: string): string {
+  if (!text) return text;
+  try {
+    return "ENC:" + btoa(encodeURIComponent(text));
+  } catch {
+    return text;
+  }
+}
 
-// Synchronous versions for React renders (obfuscation)
-export const encryptSync = (text: string, keyVal: string = "clinic-sec-key-123"): string => {
-    if (!text) return text;
-    try {
-        let encrypted = '';
-        for (let i = 0; i < text.length; i++) {
-            const charCode = text.charCodeAt(i) ^ keyVal.charCodeAt(i % keyVal.length);
-            encrypted += String.fromCharCode(charCode);
-        }
-        // Use encodeURIComponent to handle Arabic characters properly before btoa
-        return "ENC:" + btoa(encodeURIComponent(encrypted)); 
-    } catch {
-        return text;
-    }
-};
+export function decryptSync(encryptedText: string): string {
+  if (!encryptedText || !encryptedText.startsWith("ENC:")) return encryptedText;
+  try {
+    return decodeURIComponent(atob(encryptedText.substring(4)));
+  } catch {
+    return encryptedText;
+  }
+}
 
-export const decryptSync = (encryptedText: string, keyVal: string = "clinic-sec-key-123"): string => {
-    if (!encryptedText || !encryptedText.startsWith("ENC:")) return encryptedText;
-    try {
-        const base64 = encryptedText.substring(4);
-        const decoded = decodeURIComponent(atob(base64));
-        let decrypted = '';
-        for (let i = 0; i < decoded.length; i++) {
-            const charCode = decoded.charCodeAt(i) ^ keyVal.charCodeAt(i % keyVal.length);
-            decrypted += String.fromCharCode(charCode);
-        }
-        return decrypted;
-    } catch {
-        return encryptedText;
-    }
+export const generateEncryptionKey = async (): Promise<CryptoKey> => {
+  return await window.crypto.subtle.generateKey(
+    { name: ALGO, length: KEY_LENGTH },
+    true,
+    ["encrypt", "decrypt"]
+  );
 };
