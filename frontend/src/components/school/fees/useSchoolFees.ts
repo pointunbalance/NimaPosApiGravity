@@ -231,4 +231,3 @@ export const useSchoolFees = () => {
     openEditFeeType,
   };
 };
-export type { FeeType, StudentSubscription };

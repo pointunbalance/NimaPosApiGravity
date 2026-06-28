@@ -3222,3 +3222,8 @@ export interface TicketSeatingTemplate {
   columns: number;
   layoutData?: string; // JSON representation of the seating grid, mapping row/col to SeatLayoutInfo
 }
+
+// Type aliases for backward compatibility
+export type Settings = AppSettings;
+export type Student = SchoolStudent;
+export type Staff = User;

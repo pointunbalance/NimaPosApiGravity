@@ -199,7 +199,7 @@ export const useEquipmentState = () => {
         purchaseDate: item.purchaseDate || '',
         purchasePrice: item.purchasePrice || '',
         nextMaintenance: item.nextMaintenance || '',
-        supervisorId: item.supervisorId ? String(item.supervisorId) : '',
+        supervisorId: item.supervisorId || '',
         supplierName: item.supplierName || '',
         supplierPhone: item.supplierPhone || '',
         notes: item.notes || '',

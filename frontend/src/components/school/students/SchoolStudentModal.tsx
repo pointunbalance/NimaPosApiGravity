@@ -20,6 +20,7 @@ export const SchoolStudentModal: React.FC<SchoolStudentModalProps> = (props) => 
   const {
     isModalOpen,
     studentFormData: formData,
+    setStudentFormData: setFormData,
     levels,
     filteredClassesForSelect: classesList,
     handleClose,

@@ -23,7 +23,7 @@ const maintenanceSchema = z.object({
   expectedCost: z.number().min(0, 'التكلفة يجب أن تكون 0 أو أكثر').optional(),
   actualCost: z.number().min(0, 'التكلفة يجب أن تكون 0 أو أكثر').optional(),
   deposit: z.number().min(0, 'العربون يجب أن يكون 0 أو أكثر').optional(),
-  status: z.enum(['received', 'diagnosing', 'waiting_parts', 'repairing', 'ready', 'delivered', 'cancelled']),
+  status: z.enum(['received', 'diagnosing', 'waiting_parts', 'repairing', 'ready', 'delivered', 'cancelled', 'waiting_approval', 'abandoned']),
   technicianName: z.string().optional(),
   notes: z.string().optional(),
 });

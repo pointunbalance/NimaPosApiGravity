@@ -20,7 +20,7 @@ import {
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 
-export default function NotificationsPage() {
+export function NotificationsPage() {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState<'all' | 'unread' | 'issues' | 'info'>('all');
   const [searchQuery, setSearchQuery] = useState('');
@@ -390,3 +390,5 @@ export default function NotificationsPage() {
     </div>
   );
 }
+
+export default NotificationsPage;

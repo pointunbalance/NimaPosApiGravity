@@ -1190,15 +1190,15 @@ export const CartSidebar: React.FC<CartSidebarProps> = React.memo(({
                                                 <tbody className="divide-y divide-slate-100 text-slate-650">
                                                     {customerOrders.slice(0, 10).map((o) => (
                                                         <tr key={o.id} className="hover:bg-slate-50/50 transition-colors">
-                                                            <td className="p-3 font-extrabold text-slate-800">{o.invoiceNumber || o.id}</td>
-                                                            <td className="p-3 text-slate-550">{new Date(o.createdAt || o.date).toLocaleDateString('ar-EG', { dateStyle: 'short' })}</td>
+                                                            <td className="p-3 font-extrabold text-slate-800">{o.referenceNumber || o.id}</td>
+                                                            <td className="p-3 text-slate-550">{new Date(o.date).toLocaleDateString('ar-EG', { dateStyle: 'short' })}</td>
                                                             <td className="p-3 bg-slate-50/30">
                                                                 <span className="font-bold">
-                                                                    {o.orderType === 'dine_in' ? 'صالة' : o.orderType === 'delivery' ? 'توصيل' : 'سفري'}
+                                                                    {o.orderType === 'dine-in' ? 'صالة' : o.orderType === 'delivery' ? 'توصيل' : 'سفري'}
                                                                 </span>
                                                             </td>
                                                             <td className="p-3 font-semibold text-slate-550">{o.paymentMethod || 'نقداً'}</td>
-                                                            <td className="p-3 font-extrabold text-slate-800">{formatCurrency(o.total)}</td>
+                                                            <td className="p-3 font-extrabold text-slate-800">{formatCurrency(o.totalAmount)}</td>
                                                             <td className="p-3 text-left">
                                                                 <span className={`inline-block px-2 py-0.5 rounded text-[10px] font-black ${
                                                                     o.status === 'completed' ? 'bg-emerald-50 text-emerald-600' : 'bg-amber-50 text-amber-600'
@@ -1245,11 +1245,11 @@ export const CartSidebar: React.FC<CartSidebarProps> = React.memo(({
                                                 <tbody className="divide-y divide-slate-100 text-slate-650">
                                                     {customerPayments.slice(0, 10).map((p) => (
                                                         <tr key={p.id} className="hover:bg-slate-50/50 transition-colors">
-                                                            <td className="p-3 font-extrabold text-slate-800">#{p.id || p.paymentNumber}</td>
-                                                            <td className="p-3 text-slate-550">{new Date(p.date || p.createdAt).toLocaleDateString('ar-EG', { dateStyle: 'short' })}</td>
-                                                            <td className="p-3 font-bold text-slate-650">{p.paymentMethod || 'نقداً'}</td>
+                                                            <td className="p-3 font-extrabold text-slate-800">#{p.id}</td>
+                                                            <td className="p-3 text-slate-550">{new Date(p.date).toLocaleDateString('ar-EG', { dateStyle: 'short' })}</td>
+                                                            <td className="p-3 font-bold text-slate-650">{p.type === 'wallet_deposit' ? 'محفظة' : 'نقداً'}</td>
                                                             <td className="p-3 font-extrabold text-emerald-600">{formatCurrency(p.amount)}</td>
-                                                            <td className="p-3 text-left text-slate-500 truncate max-w-[150px]">{p.notes || '-'}</td>
+                                                            <td className="p-3 text-left text-slate-500 truncate max-w-[150px]">{p.note || '-'}</td>
                                                         </tr>
                                                     ))}
                                                 </tbody>

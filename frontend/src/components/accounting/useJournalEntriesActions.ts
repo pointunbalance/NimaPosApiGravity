@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { db } from '../../db';
 import { JournalEntry, Account, CostCenter } from '../../types';
 import { AccountingEngine } from '../../services/AccountingEngine';
-import { JournalEntryFormData } from './JournalEntryEditModal';
+import { JournalEntryFormData } from './journalEntrySchema';
 
 export const useJournalEntriesActions = (
   accounts: Account[] | undefined,
