@@ -1,4 +1,5 @@
 """Auth router — Login, Logout, Me."""
+import logging
 from fastapi import APIRouter, HTTPException, Depends
 from app.models.auth import LoginRequest, LoginResponse, UserOut, TokenPayload
 from app.models.common import ApiResponse
@@ -7,6 +8,7 @@ from app.utils.security import verify_pin, create_token
 from app.middleware.auth_middleware import get_current_user
 
 router = APIRouter(prefix="/auth", tags=["System & Settings"])
+logger = logging.getLogger(__name__)
 
 
 @router.post("/login", response_model=ApiResponse[dict], summary="Login with PIN")
@@ -14,23 +16,22 @@ def login(payload: LoginRequest):
     """Authenticate using PIN and receive a JWT token."""
     users = user_repo.find_by_pin_hash()
     matched_user = None
-    try:
-        for u in users:
-            if u.get("pin_hash") and u.get("pin_salt"):
-                if verify_pin(payload.pin, u["pin_hash"], u["pin_salt"]):
-                    matched_user = u
-                    break
-        if not matched_user:
-            raise HTTPException(status_code=401, detail="Invalid PIN")
+    for u in users:
+        if u.get("pin_hash") and u.get("pin_salt"):
+            if verify_pin(payload.pin, u["pin_hash"], u["pin_salt"]):
+                matched_user = u
+                break
+    if not matched_user:
+        raise HTTPException(status_code=401, detail="Invalid PIN")
 
+    try:
         token, expires_in = create_token(
             matched_user["id"], matched_user["username"],
             matched_user["role"], payload.branch_id,
         )
     except Exception as e:
-        import logging
-        logging.getLogger(__name__).error("Login failed core error", exc_info=True)
-        raise e
+        logger.error("Token creation failed for user %s: %s", matched_user["username"], str(e))
+        raise HTTPException(status_code=500, detail="Authentication failed")
 
     # Create session
     session_repo.create_session(matched_user["id"], matched_user["role"], payload.branch_id)

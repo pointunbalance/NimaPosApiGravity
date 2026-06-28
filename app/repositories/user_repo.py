@@ -11,7 +11,10 @@ def get_all_active():
 
 def get_by_id(user_id: int):
     conn = get_connection()
-    row = conn.execute("SELECT * FROM users WHERE id = ?", (user_id,)).fetchone()
+    row = conn.execute(
+        "SELECT id, username, role, full_name, phone, is_active, created_at FROM users WHERE id = ?",
+        (user_id,),
+    ).fetchone()
     return row_to_dict(row) if row else None
 
 

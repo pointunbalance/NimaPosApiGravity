@@ -270,3 +270,71 @@ def get_inventory_aging():
         })
         
     return {"summary": buckets, "items": details[:100]} # Top 100 items for view
+
+
+def inventory_aging():
+    """Provides insights into how long products have been sitting in stock."""
+    conn = get_connection()
+    sql = """
+        SELECT name, sku, stock_qty,
+        CASE 
+            WHEN (julianday('now') - julianday(created_at)) <= 30 THEN '0-30 Days'
+            WHEN (julianday('now') - julianday(created_at)) BETWEEN 31 AND 90 THEN '31-90 Days'
+            ELSE 'Over 90 Days'
+        END as age_bucket
+        FROM products WHERE stock_qty > 0 AND is_active = 1
+        ORDER BY age_bucket, stock_qty DESC
+    """
+    return rows_to_list(conn.execute(sql).fetchall())
+
+
+def sales_by_user(date_from: str, date_to: str):
+    """Sales grouped by cashier/user."""
+    conn = get_connection()
+    rows = conn.execute(
+        """SELECT COALESCE(NULLIF(TRIM(i.cashier_name), ''), 'Unknown') as username,
+                  COUNT(i.id) as invoice_count,
+                  COALESCE(SUM(i.net_total), 0) as total_sales
+           FROM invoices i
+           WHERE i.is_void = 0 AND date(i.created_at) BETWEEN ? AND ?
+           GROUP BY COALESCE(NULLIF(TRIM(i.cashier_name), ''), 'Unknown')
+           ORDER BY total_sales DESC""",
+        (date_from, date_to)
+    ).fetchall()
+    return rows_to_list(rows)
+
+
+def sales_by_payment_method(date_from: str, date_to: str):
+    """Sales grouped by payment method."""
+    conn = get_connection()
+    rows = conn.execute(
+        """SELECT payment_method, COUNT(*) as cnt, COALESCE(SUM(net_total), 0) as total
+           FROM invoices WHERE is_void = 0 AND date(created_at) BETWEEN ? AND ?
+           GROUP BY payment_method""",
+        (date_from, date_to)
+    ).fetchall()
+    return rows_to_list(rows)
+
+
+def inventory_valuation():
+    """Current inventory valuation at cost price."""
+    conn = get_connection()
+    rows = conn.execute(
+        """SELECT id, name, sku, stock_qty, cost_price, ROUND(stock_qty * cost_price, 2) as value
+           FROM products WHERE is_active = 1 AND stock_qty > 0 ORDER BY value DESC"""
+    ).fetchall()
+    total_val = sum(r["value"] for r in rows)
+    return {"items": rows_to_list(rows), "total_valuation": round(total_val, 2)}
+
+
+def hourly_sales(date_from: str, date_to: str):
+    """Sales distribution by hour of day."""
+    conn = get_connection()
+    rows = conn.execute(
+        """SELECT CAST(strftime('%H', created_at) AS INTEGER) as hour, COUNT(*) as cnt,
+           COALESCE(SUM(net_total), 0) as total
+           FROM invoices WHERE is_void = 0 AND date(created_at) BETWEEN ? AND ?
+           GROUP BY hour ORDER BY hour""",
+        (date_from, date_to)
+    ).fetchall()
+    return rows_to_list(rows)

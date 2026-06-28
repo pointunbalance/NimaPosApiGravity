@@ -46,7 +46,18 @@ def bulk_update(
     payload: dict, # Dynamic payload for bulk updates
     user: dict = Depends(require_role(["manager", "owner"])),
 ):
-    product_repo.bulk_update(product_ids, payload)
+    if not product_ids:
+        raise HTTPException(status_code=400, detail="No product IDs provided")
+    if len(product_ids) > 500:
+        raise HTTPException(status_code=400, detail="Too many products (max 500)")
+    allowed_fields = {"category", "brand_id", "origin_id", "location_id", "is_active", "price", "cost_price"}
+    invalid_fields = set(payload.keys()) - allowed_fields
+    if invalid_fields:
+        raise HTTPException(status_code=400, detail=f"Invalid fields: {', '.join(invalid_fields)}")
+    try:
+        product_repo.bulk_update(product_ids, payload)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Bulk update failed: {str(e)}")
     return ApiResponse(ok=True, data={"message": f"Successfully updated {len(product_ids)} products"})
 
 
@@ -154,8 +165,18 @@ def bulk_migrate(
     payload: dict, # e.g. {"new_category": "Electronics"}
     user: dict = Depends(require_role(["manager", "owner"])),
 ):
-    # This reuse bulk_update logic but with a more descriptive semantic for migration
-    product_repo.bulk_update(product_ids, payload)
+    if not product_ids:
+        raise HTTPException(status_code=400, detail="No product IDs provided")
+    if len(product_ids) > 500:
+        raise HTTPException(status_code=400, detail="Too many products (max 500)")
+    allowed_fields = {"new_category", "new_brand_id", "category", "brand_id"}
+    invalid_fields = set(payload.keys()) - allowed_fields
+    if invalid_fields:
+        raise HTTPException(status_code=400, detail=f"Invalid fields: {', '.join(invalid_fields)}")
+    try:
+        product_repo.bulk_update(product_ids, payload)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Bulk migration failed: {str(e)}")
     return ApiResponse(ok=True, data={"message": f"Successfully migrated {len(product_ids)} products"})
 
 

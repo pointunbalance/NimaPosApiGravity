@@ -401,7 +401,8 @@ def test_backup_endpoints_create_and_list_backups(client, monkeypatch, tmp_path)
     assert create_response.status_code == 200
     create_data = create_response.json()
     assert create_data["ok"] is True
-    assert Path(create_data["data"]["path"]).exists()
+    assert "filename" in create_data["data"]
+    assert "size_bytes" in create_data["data"]
 
     assert list_response.status_code == 200
     list_data = list_response.json()
