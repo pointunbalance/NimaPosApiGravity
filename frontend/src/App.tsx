@@ -536,7 +536,7 @@ import TeacherAppRouter from './pages/school/TeacherApp';
 import { ActivationGuard } from "./components/ActivationGuard";
 import { SmartAlertsManager } from "./components/SmartAlertsManager";
 
-const NavigationMemory: React.FC<{ currentUser: any }> = ({ currentUser }) => {
+const NavigationMemory: React.FC<{ currentUser: User | null }> = ({ currentUser }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const isHypotheticalPath = useRef(true);

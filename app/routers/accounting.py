@@ -255,14 +255,12 @@ def cash_flow(date_from: str = Query(...), date_to: str = Query(...), user: dict
 @router.get("/reports/aging/receivables", response_model=ApiResponse, summary="Receivables Aging")
 def aging_receivables(user: dict = Depends(require_role(["manager", "owner"]))):
     """Aging report for customer receivables (0-30, 31-60, 61-90, 90+ days)."""
-    from app.repositories import accounting_repo
     data = accounting_repo.get_receivables_aging()
     return ApiResponse(ok=True, data=data)
 
 @router.get("/reports/aging/payables", response_model=ApiResponse, summary="Payables Aging")
 def aging_payables(user: dict = Depends(require_role(["manager", "owner"]))):
     """Aging report for supplier payables."""
-    from app.repositories import accounting_repo
     data = accounting_repo.get_payables_aging()
     return ApiResponse(ok=True, data=data)
 
@@ -270,7 +268,6 @@ def aging_payables(user: dict = Depends(require_role(["manager", "owner"]))):
 @router.get("/reports/tax", response_model=ApiResponse, summary="Tax Report")
 def tax_report(date_from: str = Query(...), date_to: str = Query(...), user: dict = Depends(require_role(["manager", "owner"]))):
     """Tax summary: sales tax collected, purchase tax paid, net liability."""
-    from app.repositories import accounting_repo
     data = accounting_repo.get_tax_report(date_from, date_to)
     return ApiResponse(ok=True, data=data)
 
