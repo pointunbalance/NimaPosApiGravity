@@ -278,8 +278,8 @@ def inventory_aging():
     sql = """
         SELECT name, sku, stock_qty,
         CASE 
-            WHEN (julianday('now') - julianday(created_at)) <= 30 THEN '0-30 Days'
-            WHEN (julianday('now') - julianday(created_at)) BETWEEN 31 AND 90 THEN '31-90 Days'
+            WHEN (julianday('now') - julianday(updated_at)) <= 30 THEN '0-30 Days'
+            WHEN (julianday('now') - julianday(updated_at)) BETWEEN 31 AND 90 THEN '31-90 Days'
             ELSE 'Over 90 Days'
         END as age_bucket
         FROM products WHERE stock_qty > 0 AND is_active = 1
