@@ -134,7 +134,7 @@ def delete(p_id: int):
                     (total_qty, now_str(), prod_id)
                 )
     except Exception:
-        pass # Best effort stock reversal
+        pass  # Best effort stock reversal
 
     # Reverse Supplier Total Purchases (LOGIC-02)
     if p.get("supplier_id") and p.get("total_amount"):
